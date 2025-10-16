@@ -139,7 +139,7 @@ function Details({ setCurrView, formState, SetFormState, sendOtp }) {
                             checked={subscribeChecked}
                         />
                         <label className="ms-2" htmlFor="accept" style={{ fontSize: '1rem' }}>
-                            I agree to the <Link href="/terms-conditions" target="_blank"><span style={{ fontWeight: "500", textDecoration: "underline" }}>Terms & Conditions</span></Link> and <Link href="/privacy-policy" target="_blank"><span style={{ fontWeight: "500", textDecoration: "underline" }}>Privacy Policy</span></Link>
+                            I agree to the <Link href="https:www.fintoo.in/terms-conditions" target="_blank"><span style={{ fontWeight: "500", textDecoration: "underline" }}>Terms & Conditions</span></Link> and <Link href="https:www.fintoo.in/privacy-policy" target="_blank"><span style={{ fontWeight: "500", textDecoration: "underline" }}>Privacy Policy</span></Link>
                         </label>
                     </div>
                     {subscribeError && <p style={{ fontSize: '12px', color: 'red' }}>{subscribeError}</p>}

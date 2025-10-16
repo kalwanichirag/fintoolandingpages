@@ -103,6 +103,7 @@
     display: flex;
     align-items: center;
     padding: 10px;
+    color: #000;
     border: 1px solid #B2B2B2;
     border-radius: 5px;
     font-size: 1rem;
@@ -148,7 +149,7 @@
     border-radius: 6px;
     margin-left: 1.6rem;
     text-align: center;
-    color: #000;
+    color: #000 !important;
     font-size: 1.2rem;
     /* padding-left: 1rem; */
     background: transparent;
@@ -176,6 +177,9 @@
     font-size: .9rem;
     color: rgb(158, 158, 158);
     cursor: pointer;
+}
+.termsSection label a{
+    color: #042b62;
 }
 .termsSection .termsSectionTxt {
     font-size: 1rem;
