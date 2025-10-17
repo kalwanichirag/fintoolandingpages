@@ -16,6 +16,7 @@
 //         function extractParametersFromURL() {
 //           const urlSearchParams = new URLSearchParams(window.location.search);
 //           const utmSourceParam = urlSearchParams.get("utm_source");
+
 //           const tagvalParam = urlSearchParams.get("tags");
     
 //           if (utmSourceParam || tagvalParam) {

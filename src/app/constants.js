@@ -44,8 +44,6 @@ export const TAX_SCHEDULE_APPOINTMENT = TAX_URL + "scheduleappointment";
 export const RAZORPAY_CHECKOUT = "https://checkout.razorpay.com/v1/checkout.js";
 export const PAYMENT_URL_TEST = 'https://test.payu.in/_payment';
 export const PAYMENT_URL_LIVE = 'https://secure.payu.in/_payment';
-export const RAZOR_PAY_KEY = "rzp_live_rYE1IuyTWkWiDv";
-export const RAZOR_PAY_SECRET = "GOfFTB1HlrGQlqsnrYnCPhmj";
 export const ASSESSMENT_YEAR = '2025-26';
 export const Add_Own_Foreign_Assets = TAX_URL + 'add_own_foreign_assets'
 
