@@ -93,7 +93,7 @@ function Details({ setCurrView, formState, SetFormState, sendOtp }) {
                             style={{ paddingLeft: '50px' }}
                         />
                         <img
-                            src={getPublicMediaURL("static/media/flagIndia.svg")}
+                            src={`${process.env.NEXT_PUBLIC_STATIC_URL}media/flagIndia.svg`}
                             alt="DOB"
                             style={{
                                 width: '30px',

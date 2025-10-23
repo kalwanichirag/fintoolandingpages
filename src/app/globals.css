@@ -3,6 +3,19 @@
   --foreground: #171717;
 }
 
+
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+@media only screen and (min-width: 1281px) and (max-width: 1680px) {
+	html {
+		font-size: 14px;
+	}
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -16,10 +29,16 @@ body {
   overflow-x: hidden;
 }
 
+input:-internal-autofill-selected
+{
+	background-color: #fff !important;
+	color: #000;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-	font-family: "Red Hat Text", "Arial", "Helvetica", "sans-serif";
+	font-family: "Red Hat Text", "Arial", "Helvetica", "sans-serif" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -73,8 +92,8 @@ a {
 		text-align: left;
 	}
 
-	.footer li,
-	p {
+	.footer li
+	 {
 		font-size: 14px;
 	}
   .footer .footer-navigation li a:hover {
@@ -177,5 +196,21 @@ footer a {
 .footer .top-footer {
 	padding: 20px 0;
 
+}
+
+.srv-validation-message,.error{
+    font-size: 12px;
+}
+.srv-validation-message {
+  font-size: 0.9rem;
+  color: red;
+  font-weight: 400;
+}
+.main-layout .sub-header,
+h3 {
+  font-size: 18px;
+  font-weight: 500;
+  /* padding-top: 1rem; */
+  padding-bottom: 1rem;
 }
 

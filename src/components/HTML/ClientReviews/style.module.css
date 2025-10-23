@@ -31,7 +31,7 @@
   font-weight: 400;
 }
 .cardparagraph {
-  color: #333333;
+  color: #333333 !important;
   font-family: "Lato", Sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -77,6 +77,8 @@ align-items: center;
 }
 .ProfileName {
   font-size: 1.1rem;
+    color: #333333;
+
   font-weight: 600;
 }
 .ProfileDesignation {
@@ -92,6 +94,7 @@ align-items: center;
 }
 .clientReviewTxt {
   padding: 10px;
+  color: #333333;
 }
 .CardProfileImg p {
   font-weight: 400;

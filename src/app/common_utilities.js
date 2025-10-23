@@ -82,7 +82,7 @@ export const fetchMembers = async () => {
 export const getPublicMediaURL = (path) => {
   const hosts = ['fintoo.in', 'fintoo.ae', 'fintoo.ai'];
   const isSpecificHost = hosts.some(host => window.location.host.includes(host));
-  const baseURL = isSpecificHost ? process.env.REACT_APP_STATIC_MEDIA_URL : process.env.PUBLIC_URL;
+  const baseURL = isSpecificHost ? process.env.NEXT_PUBLIC_STATIC_URL : process.env.PUBLIC_URL;
   const cleanedPath = path.split("/").filter(Boolean).join("/");
   return `${baseURL}/${cleanedPath}`;
 };

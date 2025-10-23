@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer({ hideFooter = false }) {
   const currentDate = new Date();
@@ -156,6 +157,17 @@ export default function Footer({ hideFooter = false }) {
                     <li>
                       <Link href="/contact">Contact Us</Link>
                     </li>
+                  
+                    <li>
+                      <Link href="https://apps.apple.com/in/app/fintoo/id1339092462" className="relative">
+                        <Image fill src={ `${process.env.NEXT_PUBLIC_STATIC_URL}/media/footer/minty-app-store.png`} className={styles.footernavigationimg}/>
+                      </Link>
+                    </li>
+                     <li>
+                      <Link href="https://play.google.com/store/apps/details?id=com.financialhospital.admin.finh" className="relative">
+                        <Image fill src={ `${process.env.NEXT_PUBLIC_STATIC_URL}/media/footer/minty-android-app.webp`} className={styles.footernavigationimg}/>
+                      </Link>
+                    </li>
                   </ul>
                 </div>
 
@@ -171,6 +183,26 @@ export default function Footer({ hideFooter = false }) {
                     </li>
                     <li>
                       <Link href="/terms-conditions">Terms and Conditions</Link>
+ 
+                    </li>
+                    <li>
+                      <Link href="/terms-conditions">Grievance Mechanism</Link>
+                    </li>
+                      <li>
+                      <Link href="/terms-conditions">Complaints Status</Link>
+                    </li>
+                      <li>
+                      <Link href="/terms-conditions">Access Online Dispute Resolution (ODR) Portal
+</Link>
+                    </li>
+                      <li>
+                      <Link href="/terms-conditions">Investor Charter</Link>
+                    </li>
+                    <li>
+                      <Link href="/terms-conditions">Compliance Audit Status</Link>
+                    </li>
+                      <li>
+                      <Link href="/terms-conditions">Help Center</Link>
                     </li>
                   </ul>
                 </div>

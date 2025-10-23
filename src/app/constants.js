@@ -215,7 +215,7 @@ export const DMF_SMALLCASE_MFLOAN_INTERATCID = DMF_BASE_URL + "api/loan/mfloanto
 export const DMF_GET_ASSETALLOCATION = DMF_BASE_URL + "api/portfolio/getassetallocations";
 
 // Advisory Constant
-export const ADVISORY_GET_BLOG_API_URL = process.env.ADVISORY_GET_BLOG_API_URL;
+export const ADVISORY_GET_BLOG_API_URL = process.env.NEXT_PUBLIC_ADVISORY_GET_BLOG_API_URL;
 export const ADVISORY_GET_SCORECARD_API_URL = BASE_API_URL + "restapi/report/getscorecard/";
 export const ADVISORY_GET_FP_ABOUTYOUR_PLANDATA_API_URL = BASE_API_URL + "restapi/report/getfpaboutyourplandata/";
 export const ADVISORY_GET_GOALS_API_URL = BASE_API_URL + "restapi/getgoalsdatabyuser/";

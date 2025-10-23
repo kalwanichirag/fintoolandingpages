@@ -29,7 +29,7 @@ function UAEFooter() {
               className={`col-md-3 col-12 text-left ${styles.FooterNRIwidget}`}
             >
               <div className={`${styles.FooterwidgetImg}`}>
-                <img width={200}   src={process.env.REACT_APP_STATIC_URL + "media/wp/Fintoowhitelogo_.svg"} />
+                <img width={200}   src={process.env.NEXT_PUBLIC_STATIC_URL + "media/wp/Fintoowhitelogo_.svg"} />
               </div>
             </div>
             <div className={`col-md-9 col-12 ${styles.FooterNRIwidget}`}>

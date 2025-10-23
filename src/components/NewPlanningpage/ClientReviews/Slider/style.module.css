@@ -22,12 +22,18 @@
   margin-bottom: 3rem;
   height: 450px;
   position: relative;
-  overflow: scroll;
+  overflow-y: auto;
   align-items: start;
   /* This ensures elements align properly */
 }
-
-
+.ReviewCard::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgb(219, 219, 219);
+  border-radius: 5px; /* Chrome, Safari, Edge */
+}
+.ReviewCard::-webkit-scrollbar-thumb{
+  background-color: #999999;
+}
 .ReviewCard .ReviewTxt {
   font-size: 18px;
   text-align: justify;
