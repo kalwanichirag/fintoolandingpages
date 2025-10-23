@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import Slider from "react-slick";
 import styles from "./style.module.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import { FcGoogle } from "react-icons/fc";
 import Avatar from "react-avatar";
 import { usePathname } from "next/navigation";
