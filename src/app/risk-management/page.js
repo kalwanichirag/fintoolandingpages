@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, Suspense } from "react";
 import FaqSection from "../../components/HTML/Insurance/FaqSection";
 import HeaderSection from "../../components/HTML/Insurance/HeaderSection";
 import HowWeWorkSection from "../../components/HTML/Insurance/HowWeWorkSection";
@@ -14,9 +14,8 @@ import Cookies from "js-cookie";
 import Insurancecalculator from "../../components/HTML/Insurance/insurancecalculator";
 import { usePathname, useSearchParams } from "next/navigation";
 
-const RiskManagement = () => {
+function RiskManagementContent() {
   const [show, SetShow] = useState(false);
-
   const [pageurl, setPageurl] = useState();
   const [utmSource, setUtmSource] = useState(26);
   const [tagval, setTagval] = useState(null);
@@ -116,6 +115,12 @@ const RiskManagement = () => {
       </div>
     </Fullpage>
   );
-};
+}
 
-export default RiskManagement;
+export default function RiskManagement() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <RiskManagementContent />
+    </Suspense>
+  );
+}

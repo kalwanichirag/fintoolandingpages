@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, Suspense } from "react";
 import FaqSection from "../../components/HTML/TaxPlanning/FaqSection";
 import SecuritySection from "../../components/HTML/SecuritySection";
 import TaxPlanningHeaderSection from "../../components/HTML/TaxPlanning/TaxPlanningHeaderSection";
-
 import Fullpage from "../../components/Layouts/Fullpage";
 import ThankyouSection from "../../components/ThankyouSection";
 import WidgetSection from "../../components/HTML/TaxPlanning/WidgetSection";
@@ -12,7 +11,7 @@ import TPCardSection from "../../components/HTML/TaxPlanning/TPCardSection";
 import Cookies from "js-cookie";
 import { usePathname, useSearchParams } from "next/navigation";
 
-const TaxPlanning = () => {
+function TaxPlanningContent() {
   const [show, SetShow] = useState(false);
   const [pageurl, setPageurl] = useState();
   const [utmSource, setUtmSource] = useState(26);
@@ -113,6 +112,12 @@ const TaxPlanning = () => {
       </div>
     </Fullpage>
   );
-};
+}
 
-export default TaxPlanning;
+export default function TaxPlanning() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <TaxPlanningContent />
+    </Suspense>
+  );
+}
