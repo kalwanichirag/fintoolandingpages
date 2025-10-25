@@ -2,7 +2,7 @@
 export const RAZORPAY_API_URL = "https://ifsc.razorpay.com/";
 // export const BASE_API_URL = 'http://127.0.0.1:8000/'; //local
 // export const STATIC_URL = 'http://127.0.0.1:8000/static/';
-export const BASE_API_URL = process.env.REACT_APP_BASE_API_URL;
+export const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 export const STATIC_URL = process.env.NEXT_PUBLIC_STATIC_URL;
 export const LOGIN_PAGE = process.env.PUBLIC_URL + "/login";
 export const REGISTER_PAGE = process.env.PUBLIC_URL + "/register";

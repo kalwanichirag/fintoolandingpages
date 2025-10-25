@@ -29,7 +29,7 @@ function WhyInsuranceSection() {
             <div
               className={`${styles["why-tax-planning-section-item-content"]}`}
             >
-              <ul>
+             <ul className="list-unstyled">
                 <li>Get the best treatment without worrying about medical expenses.</li>
                 <li>Protect your savings from health emergencies. </li>
                 <li>Get tax exemption.</li>
@@ -47,7 +47,7 @@ function WhyInsuranceSection() {
             <div
               className={`${styles["why-tax-planning-section-item-content"]}`}
             >
-             <ul>
+             <ul className="list-unstyled">
                 <li>Financially secure your and your family’s future</li>
                 <li>Achieve long-term saving goals</li>
                 <li>Secure your retirement</li>
@@ -66,7 +66,8 @@ function WhyInsuranceSection() {
             <div
               className={`${styles["why-tax-planning-section-item-content"]}`}
             >
-             <ul>
+                        <ul className="list-unstyled">
+
                 <li>Financially secure your family’s future</li>
                 <li>Protect your savings from Critical and Terminal Illness Coverage</li>
                 <li>Tax Benefits</li>
@@ -84,7 +85,8 @@ function WhyInsuranceSection() {
             <div
               className={`${styles["why-tax-planning-section-item-content"]}`}
             >
-             <ul>
+                         <ul className="list-unstyled">
+
                 <li>Protect your savings from accidents, thefts, and natural calamities</li>
                 <li>Secure all expensive personal belongings</li>
                 <li>Protect yourself from any third-party liability</li>

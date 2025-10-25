@@ -140,53 +140,111 @@ export const isValidEmail = (str) => {
   return validate(str);
 };
 
-export const apiCall = async (
-  url,
-  data = "",
-  enc = true,
-  checkSession = true
-) => {
+export const apiCall = async (url, data = "", enc = true, checkSession = true) => {
   try {
+    console.log("🌐 API CALL:", url);
+    console.log("📦 Request Data:", data);
+
     let reqData = "";
     let respData = "";
-    let req = "";
 
-    // if (checkSession) {
-    //   if (!(await CheckSession())) {
-    //     return false;
-    //   }
-    // }
-
-    if (enc && data != "") {
-      reqData = commonEncode.encrypt(JSON.stringify(data));
+    if (enc && data !== "") {
+      try {
+        reqData = commonEncode.encrypt(JSON.stringify(data));
+      } catch (encErr) {
+        console.warn("⚠️ Encryption failed, sending plain data:", encErr);
+        reqData = data;
+      }
     } else {
       reqData = data;
     }
-    if (data != "") {
-      req = { method: "post", url: url, data: reqData };
+
+    const req = {
+      method: data !== "" ? "post" : "get",
+      url: url,
+      data: data !== "" ? reqData : undefined,
+      headers: { "Content-Type": "application/json" },
+    };
+
+    const response = await axios(req);
+
+    console.log("✅ Raw Response:", response);
+
+    if (enc === true && response?.data) {
+      try {
+        const decRespData = commonEncode.decrypt(response.data);
+        respData = JSON.parse(decRespData);
+      } catch (decErr) {
+        console.warn("⚠️ Decryption failed, using raw data:", decErr);
+        respData = response.data;
+      }
     } else {
-      req = { method: "get", url: url };
+      respData = response.data;
     }
 
-    return new Promise(function (resolve, reject) {
-      axios(req)
-        .then((data) => {
-          if (enc == true) {
-            let decRespData = commonEncode.decrypt(data.data);
-            respData = JSON.parse(decRespData);
-          } else {
-            respData = data.data;
-          }
-          resolve(respData);
-        })
-        .catch((err) => {
-          reject(err);
-        });
-    });
+    console.log("✅ Final Response Data:", respData);
+    return respData;
   } catch (err) {
-    return err;
+    console.error("❌ API Error:", {
+      message: err.message,
+      url,
+      data,
+      response: err.response?.data,
+      status: err.response?.status,
+    });
+    throw err; // critical: rethrow so outer catch gets it
   }
 };
+// export const apiCall = async (
+//   url,
+//   data = "",
+//   enc = true,
+//   checkSession = true
+// ) => {
+//   try {
+//      console.log("API CALL:", url);
+//     console.log(" Request Data:", data);
+//     let reqData = "";
+//     let respData = "";
+//     let req = "";
+
+//     // if (checkSession) {
+//     //   if (!(await CheckSession())) {
+//     //     return false;
+//     //   }
+//     // }
+
+//     if (enc && data != "") {
+//       reqData = commonEncode.encrypt(JSON.stringify(data));
+//     } else {
+//       reqData = data;
+//     }
+//     if (data != "") {
+//       req = { method: "post", url: url, data: reqData };
+//     } else {
+//       req = { method: "get", url: url };
+//     }
+
+//     return new Promise(function (resolve, reject) {
+//       axios(req)
+//         .then((data) => {
+//           if (enc == true) {
+//             let decRespData = commonEncode.decrypt(data.data);
+//             respData = JSON.parse(decRespData);
+//           } else {
+//             respData = data.data;
+//           }
+//           resolve(respData);
+//         })
+//         .catch((err) => {
+//           reject(err);
+//         });
+//     });
+//   } catch (err) {
+//      console.error("❌ API Error:", err.response?.data || err.message || err);
+//     return err;
+//   }
+// };
 
 export const restApiCall = async (url, data = "", headers = "") => {
   try {
