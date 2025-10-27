@@ -195,8 +195,14 @@ footer a {
 	color: #000;
 	text-decoration: none;
 	cursor: pointer;
+	font-size: 1rem !important;
 
 }
+.disabled{
+	opacity: 0.5;
+	cursor: default !important;
+}
+
 
 .footer .top-footer {
 	padding: 20px 0;

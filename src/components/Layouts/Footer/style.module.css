@@ -85,7 +85,7 @@
 
 .footerheading {
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
   font-weight: 500;
 }
 
@@ -101,7 +101,8 @@
 }
 
 .footernavigation li a {
-  color: #fff;
+  color: #e2e2e2;
+  font-weight: 400 !important;
   text-decoration: none;
 }
 

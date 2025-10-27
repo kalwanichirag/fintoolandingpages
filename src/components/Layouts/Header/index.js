@@ -570,7 +570,7 @@ export default function Header() {
                     </div>
                     <div className={styles["submenu-container"]}>
                       <ul className={styles.submenu}>
-                        {/* {process.env.REACT_APP_MODE != "live" && ( */}
+                        {/* {process.env.NEXT_APP_MODE != "live" && ( */}
                           <li>
                             <Link
                               className={` ${styles["link-url"]} main_header_link_url`}
