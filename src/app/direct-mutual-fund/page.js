@@ -11,16 +11,15 @@ import AppointmentBox from "../../components/Calendly";
 import ClientTestimonial from "../../components/HTML/ClientTestimonial";
 import Cookies from 'js-cookie'
 function DirectMF() {
-  const [show, SetShow] = useState(false);
-
-  const [pageurl, setPageurl] = React.useState();
+  const [show, setShow] = useState(false);
+  const [pageurl, setPageurl] = useState();
   const [utmSource, setUtmSource] = useState(26);
   const [tagval, setTagval] = useState(null);
-    useEffect(() => {
-        if (typeof window === "undefined") return; // ✅ Prevent SSR crash
 
-    function extractParametersFromURL() {
-      // const urlSearchParams = new URLSearchParams(new URL(url).search);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const extractParametersFromURL = () => {
       const urlSearchParams = new URLSearchParams(window.location.search);
       const utmSourceParam = urlSearchParams.get("utm_source");
       const tagvalParam = urlSearchParams.get("tags");
@@ -29,8 +28,8 @@ function DirectMF() {
         setUtmSource(utmSourceParam);
         setTagval(tagvalParam);
         setPageurl(window.location.pathname);
-        const cookieOptions = { expires: 0.0208 };
-        // const cookieOptions = { expires: 0.00139 };
+
+        const cookieOptions = { expires: 0.0208 }; // ~30 minutes
         Cookies.set("utm_source", utmSourceParam || "", cookieOptions);
         Cookies.set("tagval", tagvalParam || "", cookieOptions);
         Cookies.set("pageurl", window.location.pathname, cookieOptions);
@@ -43,19 +42,24 @@ function DirectMF() {
         setTagval(storedTagval);
         setPageurl(storedPageurl);
       }
-    }
+    };
 
     extractParametersFromURL();
-    window.addEventListener("popstate", extractParametersFromURL);
 
+    window.addEventListener("popstate", extractParametersFromURL);
     return () => {
-      window.removeEventListener('popstate', extractParametersFromURL);
+      window.removeEventListener("popstate", extractParametersFromURL);
     };
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!Cookies.get("utm_source") && !Cookies.get("tagval") && !Cookies.get("pageurl")) {
+      const hasCookies =
+        Cookies.get("utm_source") ||
+        Cookies.get("tagval") ||
+        Cookies.get("pageurl");
+
+      if (!hasCookies) {
         setUtmSource(utmSource);
         setTagval(null);
         setPageurl(null);
@@ -63,10 +67,12 @@ function DirectMF() {
     }, 500);
 
     return () => clearInterval(interval);
-  }, []);
-  React.useEffect(() => {
-    document.body.classList.add('MainDivRemove');
+  }, [utmSource]);
 
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.body.classList.add("MainDivRemove");
+    }
   }, []);
   return (
     <Fullpage>
