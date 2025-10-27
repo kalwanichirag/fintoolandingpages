@@ -1,6 +1,6 @@
 import SectionHeader from "../../SectionHeader";
 import styles from "./style.module.css";
-import commonStyles from "../../Layout/Fullpage/style.module.css";
+import commonStyles from "../../Layouts/Fullpage/style.module.css";
 import { useCalendlyEventListener, InlineWidget } from "react-calendly";
 // import TaxData from "./TaxData.json";
 import { fetchData } from "../../../common_utilities";
