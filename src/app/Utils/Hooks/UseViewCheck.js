@@ -4,9 +4,13 @@ export function useViewCheck(ref) {
 
     const [isIntersecting, setIntersecting] = useState(false)
 
-    const observer = useMemo(() => new IntersectionObserver(
-        ([entry]) => setIntersecting(entry.isIntersecting)
-    ), [ref])
+  const observer = useMemo(() => {
+    if (typeof window === "undefined" || !ref?.current) return null;
+
+    return new IntersectionObserver(([entry]) => {
+      setIntersecting(entry.isIntersecting);
+    });
+  }, [ref]);
 
 
     useEffect(() => {
@@ -21,14 +25,16 @@ export function useViewCheckOnce(ref) {
 
     const [isIntersecting, setIntersecting] = useState(false)
 
-    const observer = useMemo(() => new IntersectionObserver(
-        ([entry]) => {
-            if (entry.isIntersecting === true) {
-                setIntersecting(true)
-                return observer.disconnect()
-            }
-        }
-    ), [ref])
+   const observer = useMemo(() => {
+    if (typeof window === "undefined" || !ref?.current) return null;
+
+    return new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIntersecting(true);
+        observer.disconnect();
+      }
+    });
+  }, [ref]);
 
 
     useEffect(() => {

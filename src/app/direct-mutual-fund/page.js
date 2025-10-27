@@ -1,15 +1,19 @@
-"use client"
-import React, { useEffect, useState } from "react";
-import DirectMFHeaderSection from "../../components/HTML/DirectMF/DirectMFHeaderSection";
+"use client";
+export const ssr = false;
 
+import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import DirectMFHeaderSection from "../../components/HTML/DirectMF/DirectMFHeaderSection";
 import FeaturesSection from "../../components/HTML/DirectMF/FeaturesSection";
 import StatsSection from "../../components/HTML/DirectMF/StatsSection";
 import FaqSection from "../../components/HTML/DirectMF/FaqSection";
 import Fullpage from "../../components/Layouts/Fullpage";
 import ThankyouSection from "../../components/ThankyouSection";
+import Cookies from "js-cookie";
+
 const AppointmentBox = dynamic(() => import("../../components/Calendly"), { ssr: false });
 const ClientTestimonial = dynamic(() => import("../../components/HTML/ClientTestimonial"), { ssr: false });
-import Cookies from 'js-cookie'
+
 function DirectMF() {
   const [show, setShow] = useState(false);
   const [pageurl, setPageurl] = useState();
