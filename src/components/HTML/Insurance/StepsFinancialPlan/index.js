@@ -1,5 +1,5 @@
 import styles from "./style.module.css";
-import commonStyles from "../../../Layout/Fullpage/style.module.css";
+import commonStyles from "../../../Layouts/Fullpage/style.module.css";
 import SectionHeader from "../../../SectionHeader";
 import { CiUser } from "react-icons/ci";
 import { AiOutlinePieChart } from "react-icons/ai";

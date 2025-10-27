@@ -1,5 +1,5 @@
 import styles from "./style.module.css";
-import commonStyles from "../../../Layout/Fullpage/style.module.css";
+import commonStyles from "../../../Layouts/Fullpage/style.module.css";
 
 function WhyTaxPlanningSection() {
 
