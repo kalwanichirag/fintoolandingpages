@@ -16,7 +16,9 @@ function DirectMF() {
   const [pageurl, setPageurl] = React.useState();
   const [utmSource, setUtmSource] = useState(26);
   const [tagval, setTagval] = useState(null);
-  useEffect(() => {
+    useEffect(() => {
+        if (typeof window === "undefined") return; // ✅ Prevent SSR crash
+
     function extractParametersFromURL() {
       // const urlSearchParams = new URLSearchParams(new URL(url).search);
       const urlSearchParams = new URLSearchParams(window.location.search);
@@ -49,7 +51,7 @@ function DirectMF() {
     return () => {
       window.removeEventListener('popstate', extractParametersFromURL);
     };
-  }, [window.location.search]);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
