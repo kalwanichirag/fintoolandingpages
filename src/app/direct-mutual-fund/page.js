@@ -7,8 +7,8 @@ import StatsSection from "../../components/HTML/DirectMF/StatsSection";
 import FaqSection from "../../components/HTML/DirectMF/FaqSection";
 import Fullpage from "../../components/Layouts/Fullpage";
 import ThankyouSection from "../../components/ThankyouSection";
-import AppointmentBox from "../../components/Calendly";
-import ClientTestimonial from "../../components/HTML/ClientTestimonial";
+const AppointmentBox = dynamic(() => import("../../components/Calendly"), { ssr: false });
+const ClientTestimonial = dynamic(() => import("../../components/HTML/ClientTestimonial"), { ssr: false });
 import Cookies from 'js-cookie'
 function DirectMF() {
   const [show, setShow] = useState(false);
