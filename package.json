@@ -20,6 +20,7 @@
     "crypto-js": "^4.2.0",
     "js-cookie": "^3.0.5",
     "lottie-react": "^2.4.1",
+    "lucide-react": "^0.548.0",
     "moment": "github:moment/moment",
     "next": "15.5.5",
     "postcss": "^8.5.6",
