@@ -5,11 +5,12 @@ import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import DirectMFHeaderSection from "../../components/HTML/DirectMF/DirectMFHeaderSection";
 import FeaturesSection from "../../components/HTML/DirectMF/FeaturesSection";
-import StatsSection from "../../components/HTML/DirectMF/StatsSection";
 import FaqSection from "../../components/HTML/DirectMF/FaqSection";
 import Fullpage from "../../components/Layouts/Fullpage";
 import ThankyouSection from "../../components/ThankyouSection";
 import Cookies from "js-cookie";
+const StatsSection = dynamic(() => import("../../components/HTML/DirectMF/StatsSection"), { ssr: false });
+
 
 const AppointmentBox = dynamic(() => import("../../components/Calendly"), { ssr: false });
 const ClientTestimonial = dynamic(() => import("../../components/HTML/ClientTestimonial"), { ssr: false });
