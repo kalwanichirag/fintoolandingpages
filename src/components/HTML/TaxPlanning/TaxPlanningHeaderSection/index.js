@@ -31,13 +31,13 @@ function TaxPlanningHeaderSection() {
                   </button>
                 </Link>
               </> :
-                <a href={`${process.env.PUBLIC_URL}/pricing?service=tax-planning`} className="text-decoration-none">
+                <Link href={`${process.env.PUBLIC_URL}/pricing?service=tax-planning`} className="text-decoration-none">
                   <button
                     className={`${styles["header-section-content-btn"]} ${styles["animatedBouncInUp"]} ${styles["bounceInUp"]}`}
                   >
                     GET STARTED
                   </button>
-                </a>
+                </Link>
             }
 
 

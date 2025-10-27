@@ -54,7 +54,7 @@ const AdvisorySection = () => {
           <div className={`d-flex ${styles.cardboxin}`}>
             <div className={` ${styles.card}`}>
               <a
-                href={`${process.env.PUBLIC_URL}/financial-planning-page`}
+                href={`/financial-planning-page`}
                 style={{ textDecoration: "none" }}
               >
                 <div className={`${styles["card-fin"]}`}>
@@ -69,7 +69,7 @@ const AdvisorySection = () => {
             </div>
             <div className={styles.card}>
               <a
-                href={`${process.env.PUBLIC_URL}/retirement-planning-page`}
+                href={`/retirement-planning-page`}
                 style={{ textDecoration: "none" }}
               >
                 <div className={`${styles["card-Retire"]}`}>
@@ -85,7 +85,7 @@ const AdvisorySection = () => {
             </div>
             <div className={styles.card}>
               <a
-                href={`${process.env.PUBLIC_URL}/investment-planning-page`}
+                href={`/investment-planning-page`}
                 style={{ textDecoration: "none" }}
               >
                 <div className={`${styles["card-invest"]}`}>
@@ -101,7 +101,7 @@ const AdvisorySection = () => {
             </div>
             <div className={styles.card}>
               <a
-                href={`${process.env.PUBLIC_URL}/tax-planning-page`}
+                href={`/tax-planning-page`}
                 style={{ textDecoration: "none" }}
               >
                 <div className={`${styles["card-tax"]}`}>
@@ -117,7 +117,7 @@ const AdvisorySection = () => {
             </div>
             <div className={styles.card}>
               <a
-                href={`${process.env.PUBLIC_URL}/risk-management`}
+                href={`/risk-management`}
                 style={{ textDecoration: "none" }}
               >
                 <div className={`${styles["card-risk"]}`}>

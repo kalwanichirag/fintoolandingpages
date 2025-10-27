@@ -1,9 +1,10 @@
+"use client"
 import { useState } from 'react';
 import Styles from '../style.module.css'
 import Details from './Details';
 import OtpView from './OtpView';
-import { BASE_API_URL } from '../../../app/constants';
-import { apiCall } from '../../../app/common_utilities';
+import { BASE_API_URL } from '@/app/constants';
+import { apiCall } from '@/app/common_utilities';
 import * as toastr from "toastr";
 import "toastr/build/toastr.css";
 
@@ -21,8 +22,6 @@ function UserVerification({ setCurrAppointmentView }) {
 
     const sendOtp = async () => {
         try {
-                console.log("📤 Sending OTP to:", formState.mobile);
-
             const result = await apiCall(
                 BASE_API_URL + "restapi/sendotpapi/",
                 {
@@ -31,21 +30,13 @@ function UserVerification({ setCurrAppointmentView }) {
                 false,
                 false
             );
-                console.log("📩 OTP API Response:", result);
-
 
             console.log('sendOtpsendOtp', result);
-             if (!result) {
-      toastr.error("No response from server. Please try again.");
-      return;
-    }
-
             if (result.error_code != 100) {
                 toastr.options.positionClass = "toast-bottom-left";
                 toastr.error(result.message);
             }
         } catch (error) {
-    console.error("🚨 OTP API failed:", error);
 
         }
 

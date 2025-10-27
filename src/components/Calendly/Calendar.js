@@ -1,8 +1,9 @@
+"use client"
 import { useEffect, useState } from "react";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
 import { useSelector } from "react-redux";
-import { calendlyCallbackFun } from "./CalendlyCallback";
-import { fetchData } from "../../app/common_utilities";
+import { calendlyCallbackFun } from "../CalendlyCallback";
+import { fetchData } from "@/app/common_utilities";
 
 const Calendar = ({ isWP, eventCode, url, serviceName, planId, extraParams = {}, SetShow, calendlyCallbackFunMFSnippet, addIncomSlabAndComment, itrPage, useritrdata }) => {
 

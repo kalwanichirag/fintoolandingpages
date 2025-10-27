@@ -1,6 +1,7 @@
-import { fetchData, getItemLocal } from "../../app/common_utilities";
-import { BASE_API_URL } from "../../app/constants";
-import { apiCall } from "../../app/common_utilities";
+"use client"
+import { fetchData, getItemLocal } from "@/app/common_utilities";
+import { BASE_API_URL } from "@/app/constants";
+import { apiCall } from "@/app/common_utilities";
 import { useEffect } from "react";
 
 const CalendlyCallback = () => {
@@ -155,9 +156,9 @@ export const calendlyCallbackFun = async (scheduleData, addIncomSlabAndComment) 
     let planId = scheduleData.planId;
     let extraParams = scheduleData.extraParams == null ? {} : scheduleData.extraParams;
 
-    let email = scheduleData.email;
-    let fullname = scheduleData.fullname;
-    let mobileNumber = scheduleData.mobileNumber;
+    const email = scheduleData.email;
+    const fullname = scheduleData.fullname;
+    const mobileNumber = scheduleData.mobileNumber;
 
     if (eventURL == null) return;
 

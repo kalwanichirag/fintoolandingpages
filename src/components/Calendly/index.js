@@ -1,35 +1,34 @@
+"use client"
 import styles from "./style.module.css";
-import commonStyles from "../../components/Layouts/Fullpage/style.module.css";
+import commonStyles from "../Layouts/Fullpage/style.module.css";
 import { useCalendlyEventListener, InlineWidget } from "react-calendly";
 // import TaxData from "./TaxData.json";
-import { fetchData, getUserId } from "../../app/common_utilities";
+import { getUserId } from "@/app/common_utilities";
 import { useEffect, useState } from "react";
 
-import commonEncode from "../../app/commonEncode";
+import { useDispatch, useSelector } from "react-redux";
+import commonEncode from "@/app/commonEncode";
 import VerificationSection from "./VerificationSection";
 
-function AppointmentBox({ eventCode, eventUrl, serviceName, planId, extraParams, loggedInProp = false }) {
+function AppointmentBox({ eventCode, eventUrl, serviceName, planId, extraParams }) {
 
-  // Replace Redux loggedIn with prop or local state
-  const [loggedIn, setLoggedIn] = useState(loggedInProp);
+  const loggedIn = useSelector((state) => state.loggedIn);
+
   const [currAppointmentView, setCurrAppointmentView] = useState('VERIFICATION');
-  const [show, setShow] = useState(false);
+  const [show, SetShow] = useState(false);
 
-  // Lead data state (replacing Redux)
-  const [leadData, setLeadData] = useState({
-    fullname: "",
-    mobile: "",
-    email: ""
-  });
+  const dispatch = useDispatch();
 
   const handleClose = () => {
-    setShow(false);
-    setCurrAppointmentView(loggedIn ? 'CALENDLY' : 'VERIFICATION');
+    SetShow(false);
+    Boolean(loggedIn) == false ? setCurrAppointmentView('VERIFICATION') : setCurrAppointmentView('CALENDLY');
 
-    setLeadData({
-      fullname: "",
-      mobile: "",
-      email: ""
+    dispatch({
+      type: "SET_LEAD_DATA", payload: {
+        fullname: "",
+        mobile: "",
+        email: ""
+      }
     });
   }
 
@@ -45,26 +44,29 @@ function AppointmentBox({ eventCode, eventUrl, serviceName, planId, extraParams,
     let member = JSON.parse(commonEncode.decrypt(localStorage.getItem("member")));
     let users = JSON.parse(commonEncode.decrypt(localStorage.getItem("allMemberUser")));
 
-    const memberUserData = member.filter(data => data.id == userid)[0];
+    const membertUserData = member.filter(data => data.id == userid)[0];
     const currentUserData = users.filter(data => data.id == userid)[0]
 
-    console.log('currentUserData', currentUserData)
+    console.log('currentUserDatacurrentUserData', currentUserData)
 
-    setLeadData({
-      fullname: memberUserData?.name,
-      mobile: currentUserData?.mobile,
-      email: currentUserData?.email
+    dispatch({
+      type: "SET_LEAD_DATA", payload: {
+        fullname: membertUserData?.name,
+        mobile: currentUserData?.mobile,
+        email: currentUserData?.email
+      }
     });
 
     setCurrAppointmentView('CALENDLY');
   }
 
   useEffect(() => {
-    loggedIn ? handleLoggedInCase() : setCurrAppointmentView('VERIFICATION');
+    Boolean(loggedIn) == false ? setCurrAppointmentView('VERIFICATION') : handleLoggedInCase();
   }, [loggedIn])
 
   return (
     <>
+
       <section
         id="appointment-section"
         className={`${styles["appointment-section"]} ${commonStyles["padding-class"]}`}
@@ -75,17 +77,8 @@ function AppointmentBox({ eventCode, eventUrl, serviceName, planId, extraParams,
             Schedule a Call with Our Financial Advisor and Get Expert Insights Today!
           </div>
           <div>
-            <VerificationSection 
-              eventCode={eventCode} 
-              eventUrl={eventUrl} 
-              serviceName={serviceName} 
-              planId={planId} 
-              extraParams={extraParams} 
-              leadData={leadData} 
-              setLeadData={setLeadData} 
-              currAppointmentView={currAppointmentView} 
-              setCurrAppointmentView={setCurrAppointmentView} 
-            />
+            <VerificationSection eventCode={eventCode} eventUrl={eventUrl} serviceName={serviceName} planId={planId} extraParams={extraParams}  currAppointmentView={currAppointmentView}      // pass state
+  setCurrAppointmentView={setCurrAppointmentView}/>
           </div>
         </div>
         <br />

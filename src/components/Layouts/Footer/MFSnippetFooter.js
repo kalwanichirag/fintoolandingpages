@@ -6,12 +6,10 @@ import {
     FaYoutube,
     FaLinkedin,
 } from "react-icons/fa";
-import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 function MFSnippetFooter() {
     let currentDate = new Date();
     let year = currentDate.getFullYear();
-    const hideMainFooter = useSelector((state) => state.hideMainFooter);
 
     // console.log('hideMainFooter', hideMainFooter);
 

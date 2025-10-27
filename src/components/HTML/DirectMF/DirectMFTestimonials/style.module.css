@@ -1,0 +1,18 @@
+.direct-mf-testemonial-section {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+    background-color: rgb(230, 234, 239);
+}
+.section-title {
+    color: #060606;
+    font-size: 2.3rem;
+    font-weight: 700;
+    line-height: 3.5rem;
+    text-align: center;
+    color: #2f3436;
+    font-family: "Poppins", Sans-serif;
+    letter-spacing: 1px;
+}
+.DiffText{
+    color: #dd7300;
+}
