@@ -4,11 +4,14 @@ import Header from "@/components/Layouts/Header";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReduxProvider from "@/components/reduxProvider";
+import ClientLayout from "@/components/ClientLayout";
+
 const redHat = Red_Hat_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-red-hat",
 });
+
 
 export const metadata = {
   title: "Fintoo",
@@ -19,6 +22,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+ 
   return (
     <html lang="en">
       <head>
@@ -29,9 +33,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ReduxProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <ClientLayout>{children}</ClientLayout>
         </ReduxProvider>
       </body>
     </html>

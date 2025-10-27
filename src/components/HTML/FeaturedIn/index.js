@@ -27,33 +27,6 @@ const FeaturedIn = () => {
       link: "https://www.financialexpress.com/budget/budget-2023-income-tax-slab-rate-live-updates- tax-calculator-salaried-senior-citizens-nri-pension-investment-saving-news-2966481/ ",
     },
   ];
-  const PrevArrow = (props) => {
-  const { className, style, onClick } = props; // destructure props
-  return (
-    <button
-      className={styles.btnopt}
-      style={{ ...style }}
-      onClick={onClick}
-      type="button"
-    >
-      <i className="fa-solid fa-chevron-left"></i>
-    </button>
-  );
-};
-
-const NextArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <button
-      className={styles.btnopt}
-      style={{ ...style }}
-      onClick={onClick}
-      type="button"
-    >
-      <i className="fa-solid fa-chevron-right"></i>
-    </button>
-  );
-};
 
   const settings = {
     dots: true,
@@ -62,8 +35,7 @@ const NextArrow = (props) => {
     slidesToShow: 3,
     autoplay: true,
     slidesToScroll: 3,
-   prevArrow: <PrevArrow />,
-  nextArrow: <NextArrow />,
+
     responsive: [
       {
         breakpoint: 600,
