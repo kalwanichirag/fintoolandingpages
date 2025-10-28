@@ -69,3 +69,16 @@ height: 50px;
         .border-fintoo-orange { border-color: #dd7300; }
         .text-fintoo-blue { color: #042b62; }
         .text-fintoo-orange { color: #dd7300; }
+        /* 3D flip support */
+.tw-perspective {
+  perspective: 1000px;
+}
+.tw-transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+.tw-rotate-y-180 {
+  transform: rotateY(180deg);
+}
+.tw-backface-hidden {
+  backface-visibility: hidden;
+}

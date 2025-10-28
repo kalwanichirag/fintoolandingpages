@@ -7,8 +7,8 @@ import Footer from "@/components/Layouts/Footer";
 export default function ClientLayout({ children }) {
   const pathname = usePathname();
 
-  const hideHeaderRoutes = ["/retirement-planning","/Investment-Plannning","/personal-financial-planning"];
-  const hideFooterRoutes = ["/retirement-planning","/Investment-Plannning","/personal-financial-planning"];
+  const hideHeaderRoutes = ["/retirement-planning","/Investment-Plannning","/personal-financial-planning","/financial-planning"];
+  const hideFooterRoutes = ["/retirement-planning","/Investment-Plannning","/personal-financial-planning","/financial-planning"];
 
   const showHeader = !hideHeaderRoutes.includes(pathname);
   const showFooter = !hideFooterRoutes.includes(pathname);
