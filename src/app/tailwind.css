@@ -70,15 +70,57 @@ height: 50px;
         .text-fintoo-blue { color: #042b62; }
         .text-fintoo-orange { color: #dd7300; }
         /* 3D flip support */
+/* globals.css or WhatSetsUsApart.css */
+
 .tw-perspective {
   perspective: 1000px;
 }
+
 .tw-transform-style-preserve-3d {
   transform-style: preserve-3d;
 }
+
 .tw-rotate-y-180 {
   transform: rotateY(180deg);
 }
+
 .tw-backface-hidden {
   backface-visibility: hidden;
+}
+
+
+
+@keyframes tw-slide-in {
+  0% {
+    transform: translateY(15px);
+    opacity: 1;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+          text-shadow: 0 ;
+
+  }
+}
+
+.tw-animate-slide-in {
+  animation: tw-slide-in 0.6s ease-out forwards;
+}
+@keyframes tw-line-pulse {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.tw-animate-line-pulse {
+  transform-origin: left;
+  animation: tw-line-pulse 0.8s ease-in-out forwards;
 }

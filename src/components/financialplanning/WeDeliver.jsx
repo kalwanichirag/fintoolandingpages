@@ -36,18 +36,18 @@ export default function WeDeliver() {
   ];
 
   return (
-    <section className="tw-bg-[#031735] tw-py-20 tw-text-white tw-text-center">
-      <h2 className="tw-text-3xl tw-font-extrabold tw-mb-12">We Deliver</h2>
-      <div className="tw-grid tw-gap-6 tw-max-w-6xl tw-mx-auto tw-grid-cols-1 md:tw-grid-cols-2">
+    <section className="tw-bg-[#031735] tw-py-16 tw-text-white tw-text-center">
+      <h2 className="tw-text-4xl   tw-font-extrabold tw-mb-12">We Deliver</h2>
+      <div className="tw-grid tw-gap-6 tw-max-w-6xl tw-px-4  tw-mx-auto tw-grid-cols-1 md:tw-grid-cols-2 ">
         {services.map((service, i) => (
           <div
             key={i}
-            className="tw-border tw-border-gray-500 tw-rounded-lg tw-p-8 tw-flex tw-items-start tw-gap-5 tw-bg-[#031735] hover:tw-bg-sky-900 tw-transition-all tw-duration-300 group"
+            className="tw-border tw-border-gray-500 tw-rounded-lg tw-p-8 tw-flex tw-items-start  tw-border-white tw-border-solid tw-gap-5 tw-bg-[#031735] hover:tw-bg-sky-900 tw-transition-all tw-duration-300 group"
           >
             <div>{service.icon}</div>
             <div className="tw-text-left">
-              <h3 className="tw-font-semibold tw-text-lg">{service.title}</h3>
-              <p className="tw-text-sm tw-text-gray-300 tw-mt-2">{service.desc}</p>
+              <h3 className="tw-font-semibold tw-text-lg tw-mb-0 tw-pb-0">{service.title}</h3>
+              <p className="tw-text-sm tw-text-gray-300 tw-mt-1">{service.desc}</p>
             </div>
           </div>
         ))}

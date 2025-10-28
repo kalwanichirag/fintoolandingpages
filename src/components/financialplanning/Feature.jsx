@@ -21,6 +21,7 @@ export const Feature = () => {
         dots: false,
         infinite: true,
         speed: 500,
+        gap:10,
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
@@ -29,7 +30,7 @@ export const Feature = () => {
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 1
+                    slidesToShow: 2
                 }
             }
         ]
@@ -38,11 +39,11 @@ export const Feature = () => {
 
         <section className="tw-py-16 tw-text-center">
             <h2 className="tw-text-4xl tw-font-bold tw-mb-8 tw-text-black">Featured In</h2>
-            <div className="tw-mx-auto tw-max-w-6xl">
+            <div className="tw-mx-auto tw-max-w-6xl container">
                 <Slider {...sliderSettings}>
                     {featuredLogos.map((logo, index) => (
                         <div key={index} className="!tw-flex tw-justify-center tw-items-center">
-                            <img src={logo} alt="featured"  width={300} height={150} className='tw-object-contain' />
+                            <img src={logo} alt="featured"  className='!tw-object-contain' />
                         </div>
                     ))}
                 </Slider>

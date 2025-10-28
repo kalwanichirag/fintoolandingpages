@@ -48,16 +48,17 @@ export default function CounterAndVideoSection() {
                 {/* Counter Section */}
                 <div className="tw-container tw-mx-auto tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-6 tw-px-4">
                     {counters.map((item, i) => (
-                        <div
-                            key={i}
-                            className="tw-bg-[#00132E] tw-text-white tw-rounded-lg tw-shadow-lg tw-py-8 tw-flex tw-flex-col tw-items-center tw-justify-center tw-relative"
-                        >
-                            <h2 className="tw-text-4xl tw-font-bold">
-                                {countValues[i].toLocaleString()}
-                                {item.suffix}
-                            </h2>
-                            <p className="tw-text-sm tw-mt-2">{item.label}</p>
-                            <div className="tw-absolute tw-bottom-0 tw-w-3/4 tw-h-[2px] tw-bg-[#00B6F0] tw-mx-auto"></div>
+                       <div
+  key={i}
+  className="tw-group tw-bg-[#00132E] tw-text-white tw-rounded-lg tw-shadow-lg tw-py-8 tw-flex tw-flex-col tw-items-center tw-justify-center tw-relative"
+>
+  <h2 className="tw-text-4xl tw-font-bold">
+    {countValues[i].toLocaleString()}
+    {item.suffix}
+  </h2>
+  <p className="tw-text-sm tw-mt-2">{item.label}</p>
+
+<div className="tw-absolute -tw-bottom-3 tw-left-0 tw-h-[2px] tw-bg-[#00B6F0] tw-transition-all tw-duration-500 tw-ease-in-out tw-w-0 group-hover:tw-w-full"></div>
                         </div>
                     ))}
                 </div>
@@ -66,7 +67,7 @@ export default function CounterAndVideoSection() {
 
             </section>
 <section className="tw-bg-[#00132E]">
-  <div className="tw-max-w-6xl tw-mx-auto tw-text-white tw-py-16 tw-mt-12 tw-px-4">
+  <div className="tw-max-w-6xl tw-mx-auto tw-text-white tw-py-16  tw-px-4">
     <h2 className="tw-text-2xl tw-text-center md:tw-text-3xl tw-font-bold tw-mb-10">
       Here’s why our clients trust us with their portfolio management.
     </h2>
