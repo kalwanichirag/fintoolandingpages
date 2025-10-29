@@ -1,10 +1,16 @@
+"use client"
 import React from 'react'
 import "../../app/tailwind.css"
 import { Mouse } from "lucide-react";
 
 
 const HeroSection = () => {
-    return (
+  const handleScrollToCalendly = () => {
+    const section = document.getElementById("calendly-section");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };    return (
         <section
             className="tw-relative tw-h-[70vh] tw-text-white tw-bg-cover tw-bg-center tw-flex tw-flex-col tw-justify-center tw-items-center"
             style={{
@@ -23,7 +29,8 @@ const HeroSection = () => {
                 </h1>
                 <p className="tw-text-lg md:tw-text-xl tw-mb-6">Delivering reliable financial advice based on extensive market research and a personalized approach.
 </p>
-                <button className="tw-bg-[#00AEEF] tw-px-6 tw-py-3 tw-rounded-lg tw-font-semibold hover:tw-bg-[#0093cc]">
+                <button className="tw-bg-[#00AEEF] tw-px-6 tw-py-3 tw-rounded-lg tw-font-semibold hover:tw-bg-[#0093cc]"           onClick={handleScrollToCalendly}
+> 
                     Book an Appointment
                 </button>
             </div>

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Play } from "lucide-react";
 
 export default function CounterAndVideoSection() {
@@ -16,35 +16,62 @@ export default function CounterAndVideoSection() {
         "https://www.youtube.com/embed/akCsYoRcVfU?si=OYSHCDXRLP7_pn0A",
     ];
 
-    const [countValues, setCountValues] = useState(counters.map(() => 0));
+  const [countValues, setCountValues] = useState(counters.map(() => 0));
+  const [hasStarted, setHasStarted] = useState(false);
+  const sectionRef = useRef(null);
 
-    useEffect(() => {
-        const duration = 2000;
-        const interval = 30;
+   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      { threshold: 0.3 } // trigger when 30% of section is visible
+    );
 
-        counters.forEach((counter, i) => {
-            let start = 0;
-            const end = counter.value;
-            const step = Math.ceil(end / (duration / interval));
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
-            const timer = setInterval(() => {
-                start += step;
-                if (start >= end) {
-                    start = end;
-                    clearInterval(timer);
-                }
-                setCountValues((prev) => {
-                    const updated = [...prev];
-                    updated[i] = start;
-                    return updated;
-                });
-            }, interval);
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, [hasStarted]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    const duration = 4000;
+    const interval = 30;
+
+    counters.forEach((counter, i) => {
+      let start = 0;
+      const end = counter.value;
+      const step = Math.ceil(end / (duration / interval));
+
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= end) {
+          start = end;
+          clearInterval(timer);
+        }
+        setCountValues((prev) => {
+          const updated = [...prev];
+          updated[i] = start;
+          return updated;
         });
-    }, []);
+      }, interval);
+    });
+  }, [hasStarted]);
 
     return (
         <>
-            <section className="tw-max-w-6xl tw-mx-auto tw-bg-white tw-py-16 tw-text-center">
+        <section
+                  ref={sectionRef}
+
+          className="tw-max-w-6xl tw-mx-auto tw-bg-white tw-py-16 tw-text-center">
                 {/* Counter Section */}
                 <div className="tw-container tw-mx-auto tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-6 tw-px-4">
                     {counters.map((item, i) => (
@@ -58,7 +85,7 @@ export default function CounterAndVideoSection() {
   </h2>
   <p className="tw-text-sm tw-mt-2">{item.label}</p>
 
-<div className="tw-absolute -tw-bottom-3 tw-left-0 tw-h-[2px] tw-bg-[#00B6F0] tw-transition-all tw-duration-500 tw-ease-in-out tw-w-0 group-hover:tw-w-full"></div>
+<div className="tw-absolute -tw-bottom-3 tw-left-0 tw-h-[4px] tw-bg-[#00B6F0] tw-transition-all tw-duration-500 tw-ease-in-out tw-w-full group-hover:tw-w-0"></div>
                         </div>
                     ))}
                 </div>

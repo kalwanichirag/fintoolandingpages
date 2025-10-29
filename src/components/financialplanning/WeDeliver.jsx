@@ -42,12 +42,12 @@ export default function WeDeliver() {
         {services.map((service, i) => (
           <div
             key={i}
-            className="tw-border tw-border-gray-500 tw-rounded-lg tw-p-8 tw-flex tw-items-start  tw-border-white tw-border-solid tw-gap-5 tw-bg-[#031735] hover:tw-bg-sky-900 tw-transition-all tw-duration-300 group"
+            className="tw-border tw-border-gray-500 tw-rounded-lg tw-p-4 lg:tw-p-8 tw-flex tw-items-start  tw-border-white tw-border-solid tw-gap-5 tw-bg-[#031735] hover:tw-bg-sky-900 tw-transition-all tw-duration-300 group"
           >
             <div>{service.icon}</div>
             <div className="tw-text-left">
               <h3 className="tw-font-semibold tw-text-lg tw-mb-0 tw-pb-0">{service.title}</h3>
-              <p className="tw-text-sm tw-text-gray-300 tw-mt-1">{service.desc}</p>
+              <p className="tw-text-sm tw-text-gray-300 tw-mt-1 tw-mb-0">{service.desc}</p>
             </div>
           </div>
         ))}

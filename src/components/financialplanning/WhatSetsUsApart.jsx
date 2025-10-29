@@ -12,7 +12,7 @@ export default function WhatSetsUsApart() {
   ];
 
   return (
-    <section className=" tw-text-white  tw-text-center ">
+    <section className=" tw-text-white  tw-text-center tw-bg-[#E8F6FC] ">
       {/* What Sets Us Apart */}
       <div className="t tw-text-[#00132E] tw-py-16">
         <h2 className="tw-text-4xl tw-font-extrabold tw-mb-10">What Sets Us Apart?</h2>
@@ -22,13 +22,13 @@ export default function WhatSetsUsApart() {
               <div className="tw-relative tw-w-full tw-h-48 tw-transform-style-preserve-3d tw-transition-transform tw-duration-200 group-hover:[transform:rotateY(180deg)]">
                 
                 {/* Front */}
-                <div className="tw-absolute tw-inset-0 tw-bg-[#00132E] tw-rounded-2xl tw-flex tw-flex-col tw-items-center tw-justify-center tw-shadow-lg tw-backface-hidden">
+                <div className="tw-absolute tw-inset-0 tw-bg-[#00132E] tw-rounded-2xl tw-flex tw-flex-col tw-items-center tw-justify-center tw-shadow-lg tw-backface-hidden tw-p-2">
                   <ArrowRight className="tw-w-8 tw-h-8 tw-mb-2 tw-text-sky-400 group-hover:tw-text-white tw-transition-colors" />
-                  <h3 className="tw-font-bold tw-text-lg tw-text-white">{card.title}</h3>
+                  <h3 className="tw-font-bold tw-text-xl tw-text-white tw-pb-0 tw-mb-0">{card.title}</h3>
                 </div>
 
                 {/* Back */}
-                <div className="tw-absolute tw-inset-0 tw-bg-[#00132E] tw-text-white tw-rounded-2xl tw-flex tw-items-center tw-justify-center tw-p-4 tw-text-sm tw-font-lg tw-rotate-y-180 tw-backface-hidden">
+                <div className="tw-absolute tw-inset-0 tw-bg-[#00132E] tw-text-white tw-rounded-2xl tw-flex tw-items-center tw-justify-center tw-p-4 tw-text-sm tw-font-xl tw-rotate-y-180 tw-backface-hidden">
                   {card.backText}
                 </div>
               </div>
