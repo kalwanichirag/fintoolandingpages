@@ -78,7 +78,7 @@ export default function CalendlyStep({ formData, eventUrl, eventCode, serviceNam
       console.log("📦 Sending Lead Payload:", payload);
 
       // ✅ Send to backend
-      fetch("https://www.fintoo.in/callback-services/", {
+      fetch("/api/callback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
