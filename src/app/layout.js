@@ -5,6 +5,7 @@ import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReduxProvider from "@/components/reduxProvider";
 import ClientLayout from "@/components/ClientLayout";
+import Head from "next/head";
 import WebEngageProvider from "@/components/WebEngageProvider";
 
 const redHat = Red_Hat_Display({
@@ -27,14 +28,15 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <head>
+      <Head>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
-      </head>
+      />
+      </Head>
       <body>
         <ReduxProvider>
+           <WebEngageProvider />
           <ClientLayout>
               {children}
           </ClientLayout>

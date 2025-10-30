@@ -26,46 +26,93 @@ export default function UserDetails({ formData, setFormData, onSuccess }) {
     return !Object.values(newErrors).some((v) => v);
   };
 
-  const sendOtp = async () => {
-  if (!validate()) return;
-  setLoading(true);
-  try {
-    console.log("📤 Sending OTP request...");
-    const result = await apiCall(
-      BASE_API_URL + "restapi/sendotpapi/",
-      { mobile_number: formData.mobile },
-      false, // 🔄 Try changing to true if backend expects encrypted data
-      false
-    );
-
-    console.log("📥 OTP API Response:", result);
-
-    if (!result) {
-      setErrors((prev) => ({ ...prev, mobile: "No response from server." }));
-      return;
+  // 🔹 Manual validation for triggering WebEngage
+  const validateFieldManually = (fieldName, value) => {
+    switch (fieldName) {
+      case "fullname":
+        return /^[A-Za-z\s]{2,}$/.test(value.trim());
+      case "mobile":
+        return /^[1-9]{1}[0-9]{9}$/.test(value.trim());
+      case "email":
+        return /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value.trim());
+      default:
+        return false;
     }
+  };
 
-    // Sometimes API returns string numbers ("100"), so check loosely
-    if (result.error_code == 100) {
-      console.log("✅ OTP Sent Successfully");
-      onSuccess();
-    } else {
+  // 🔹 WebEngage event trigger on blur
+  const handleBlurManual = (fieldName, value) => {
+    const isValid = validateFieldManually(fieldName, value);
+
+    if (isValid && typeof webengage !== "undefined") {
+      switch (fieldName) {
+        case "fullname":
+          webengage.track("name entered", { name: value ?? "" });
+          console.log("webengage event trigger - name entered", { name: value });
+          break;
+        case "mobile":
+          webengage.track("phone entered", { phone: value ?? "" });
+          console.log("webengage event trigger - phone entered", { phone: value });
+          break;
+        case "email":
+          webengage.track("email entered", { email: value ?? "" });
+          console.log("webengage event trigger - email entered", { email: value });
+          break;
+      }
+    }
+  };
+
+  // 🔹 OTP Send Function
+  const sendOtp = async () => {
+    if (!validate()) return;
+    setLoading(true);
+    try {
+      console.log("📤 Sending OTP request...");
+      const result = await apiCall(
+      "/api/sendotp"
+,
+        { mobile_number: formData.mobile },
+        false,
+        false
+      );
+
+      console.log("📥 OTP API Response:", result);
+
+      if (!result) {
+        setErrors((prev) => ({ ...prev, mobile: "No response from server." }));
+        return;
+      }
+
+      if (result.error_code == 100) {
+        console.log("✅ OTP Sent Successfully");
+
+        // 🔹 Track successful OTP send event
+        if (typeof webengage !== "undefined") {
+          webengage.track("otp sent", {
+            mobile: formData.mobile,
+            email: formData.email,
+            name: formData.fullname,
+          });
+          console.log("webengage event trigger - otp sent");
+        }
+
+        onSuccess();
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          mobile: result.message || "Failed to send OTP.",
+        }));
+      }
+    } catch (e) {
+      console.error("❌ OTP Send Error:", e);
       setErrors((prev) => ({
         ...prev,
-        mobile: result.message || "Failed to send OTP.",
+        mobile: "Something went wrong. Please try again.",
       }));
+    } finally {
+      setLoading(false);
     }
-  } catch (e) {
-    console.error("❌ OTP Send Error:", e);
-    setErrors((prev) => ({
-      ...prev,
-      mobile: "Something went wrong. Please try again.",
-    }));
-  } finally {
-    setLoading(false);
-  }
-};
-
+  };
 
   return (
     <div className={styles.card}>
@@ -78,99 +125,113 @@ export default function UserDetails({ formData, setFormData, onSuccess }) {
 
       <h2 className={styles.title}>Enter Details</h2>
 
-          {/* NAME FIELD */}
-                  <div className="mb-4">
-
-      <label>Name *</label>
-      <input
-        type="text"
-        value={formData.fullname}
-        onChange={(e) =>
-          setFormData({ ...formData, fullname: e.target.value })
-        }
-        className={errors.fullname ? styles.errorInput : ""}
-      />
-      {errors.fullname && <p className={styles.error}>{errors.fullname}</p>}
-          </div>
-          <div className="mb-4">
-      {/* MOBILE FIELD */}
-      <label>Mobile Number *</label>
-      <div className={styles.numberinput}>
-        <img
-          alt="IN"
-          src="https://www.fintoo.in/web/static/media/flagIndia.svg"
-          className={styles.INDimg}
-        />
+      {/* NAME FIELD */}
+      <div className="mb-4">
+        <label>Name *</label>
         <input
-          type="tel"
-          value={formData.mobile}
-          onChange={(e) => {
-            // Only digits allowed
-            const val = e.target.value.replace(/\D/g, "");
-            setFormData({ ...formData, mobile: val });
-          }}
-          className={errors.mobile ? styles.errorInput : ""}
-          maxLength={10}
+          type="text"
+          value={formData.fullname}
+          onChange={(e) => setFormData({ ...formData, fullname: e.target.value })}
+          onBlur={() => handleBlurManual("fullname", formData.fullname)}
+          className={errors.fullname ? styles.errorInput : ""}
         />
+        {errors.fullname && <p className={styles.error}>{errors.fullname}</p>}
       </div>
-      {errors.mobile && <p className={styles.error}>{errors.mobile}</p>}
-          </div>
-          <div className="mb-4">
+
+      {/* MOBILE FIELD */}
+      <div className="mb-4">
+        <label>Mobile Number *</label>
+        <div className={styles.numberinput}>
+          <img
+            alt="IN"
+            src="https://www.fintoo.in/web/static/media/flagIndia.svg"
+            className={styles.INDimg}
+          />
+          <input
+            type="tel"
+            value={formData.mobile}
+            onChange={(e) => {
+              const val = e.target.value.replace(/\D/g, "");
+              setFormData({ ...formData, mobile: val });
+            }}
+            onBlur={() => handleBlurManual("mobile", formData.mobile)}
+            className={errors.mobile ? styles.errorInput : ""}
+            maxLength={10}
+          />
+        </div>
+        {errors.mobile && <p className={styles.error}>{errors.mobile}</p>}
+      </div>
+
       {/* EMAIL FIELD */}
-      <label>Email *</label>
-      <input
-        type="email"
-        value={formData.email}
-        onChange={(e) =>
-          setFormData({ ...formData, email: e.target.value })
-        }
-        className={errors.email ? styles.errorInput : ""}
-      />
-      {errors.email && <p className={styles.error}>{errors.email}</p>}
-</div>
+      <div className="mb-4">
+        <label>Email *</label>
+        <input
+          type="email"
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          onBlur={() => handleBlurManual("email", formData.email)}
+          className={errors.email ? styles.errorInput : ""}
+        />
+        {errors.email && <p className={styles.error}>{errors.email}</p>}
+      </div>
+
       {/* CHECKBOXES */}
       <div className={styles.checkboxGroup}>
         <label className={styles.checkboxLabel}>
-                  <input type="checkbox" checked disabled />
-                  <div>
-          I agree to the{" "}
-          <a
-            href="https://www.fintoo.in/web/terms-conditions"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Terms & Conditions
-          </a>{" "}
-          and{" "}
-          <a
-            href="https://www.fintoo.in/web/privacy-policy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Privacy Policy
-                      </a>
-                      </div>
+          <input
+            type="checkbox"
+            checked
+            disabled
+            onClick={() => {
+              if (typeof webengage !== "undefined") {
+                webengage.track("terms and conditions clicked");
+                console.log("webengage event trigger - terms and conditions clicked");
+              }
+            }}
+          />
+          <div>
+            I agree to the{" "}
+            <a
+              href="https://www.fintoo.in/web/terms-conditions"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Terms & Conditions
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://www.fintoo.in/web/privacy-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Privacy Policy
+            </a>
+          </div>
         </label>
 
         <label className={styles.checkboxLabel}>
-            
           <input
             type="checkbox"
             checked={formData.whatsapp || true}
-            onChange={(e) =>
-              setFormData({ ...formData, whatsapp: e.target.checked })
-            }
-                  />
-                  <div>
-          Subscribe me for <FaWhatsapp color="#25D366" /> notifications</div>
+            onChange={(e) => {
+              setFormData({ ...formData, whatsapp: e.target.checked });
+              if (typeof webengage !== "undefined") {
+                webengage.track("whatsapp opt in", {
+                  "WhatsApp Opt In": e.target.checked ? "True" : "False",
+                });
+                console.log("webengage event trigger - whatsapp opt in", {
+                  "WhatsApp Opt In": e.target.checked ? "True" : "False",
+                });
+              }
+            }}
+          />
+          <div>
+            Subscribe me for <FaWhatsapp color="#25D366" /> notifications
+          </div>
         </label>
       </div>
 
-      <button
-        onClick={sendOtp}
-        disabled={loading}
-        className={styles.primaryBtn}
-      >
+      <button onClick={sendOtp} disabled={loading} className={styles.primaryBtn}>
         {loading ? "Sending..." : "Continue"}
       </button>
     </div>

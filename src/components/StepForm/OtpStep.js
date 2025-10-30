@@ -32,7 +32,7 @@ export default function OtpStep({ formData, onVerifySuccess, onBack }) {
 
     try {
       const result = await apiCall(
-        BASE_API_URL + "restapi/verifyotpapi/",
+        "/api/verifyotp",
         { otp: otp.join(""), mobile_number: formData.mobile },
         false,
         false
