@@ -5,6 +5,7 @@ import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReduxProvider from "@/components/reduxProvider";
 import ClientLayout from "@/components/ClientLayout";
+import WebEngageProvider from "@/components/WebEngageProvider";
 
 const redHat = Red_Hat_Display({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
  
+
   return (
     <html lang="en">
       <head>
@@ -33,7 +35,9 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ReduxProvider>
-          <ClientLayout>{children}</ClientLayout>
+          <ClientLayout>
+              {children}
+          </ClientLayout>
         </ReduxProvider>
       </body>
     </html>

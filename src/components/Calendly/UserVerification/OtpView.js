@@ -129,8 +129,11 @@ function OtpView({ setCurrView, setCurrAppointmentView, formState, sendOtp }) {
                 "email": formState.email,
                 "mobile": formState.mobile,
             })
+            
             dispatch({ type: "SET_LEAD_DATA", payload: formState });
-            setCurrAppointmentView('CALENDLY');
+      dispatch({ type: "SET_LOGGED_IN", payload: true });
+
+      setCurrAppointmentView("CALENDLY");
         } catch (error) {
 
         }

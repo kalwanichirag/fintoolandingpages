@@ -1,0 +1,353 @@
+/* StepForm.module.css */
+
+/* wrapper */
+.formWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* card container */
+.card {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+/* logo */
+.logo {
+  width: 200px;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.logoborder {
+  width: 80%;
+  margin: auto;
+  height: 2px;
+  background-color: #b2b2b2;
+}
+
+/* headings */
+.title {
+  font-size: 1.75rem;
+  margin: 2rem 0 1rem;
+  font-weight: 600;
+  text-align: left;
+
+}
+
+/* form label and input are scoped under .field */
+.field {
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.fieldLabel {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 500;
+  color: #2b2b2b;
+  font-size: 0.95rem;
+}
+
+/* input styles scoped to .field */
+.fieldInput {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #d0d6db;
+  margin-top: 0.2rem;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.fieldInput:focus {
+  border-color: #1b84ff;
+  box-shadow: 0 0 0 3px rgba(27, 132, 255, 0.06);
+}
+
+/* phone flag - use as an img next to input if needed */
+.phoneWrapper {
+  position: relative;
+}
+
+.phoneFlag {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  pointer-events: none;
+}
+
+/* primary button */
+.primaryBtn {
+  background-color: #042b62;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.primaryBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* OTP specific */
+.otpContainer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 1rem 0;
+}
+
+.otpContainer input{
+  text-align: center;
+    font-size: 1.5rem !important;
+  padding: 20px  10px;
+}
+.otpInput {
+  width: 48px;
+  text-align: center;
+  height: 56px;
+  
+  text-align: center;
+
+  border-radius: 8px;
+  border: 1px solid #e6e9ec;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.otpInput:focus {
+  border-color: #042b62;
+  box-shadow: 0 0 0 3px rgba(4, 43, 98, 0.06);
+}
+
+/* error text */
+.error {
+  color: #d04545;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+
+  text-align: left;
+}
+
+/* masked phone */
+.masked {
+  font-weight: 700;
+  color: #042b62;
+  margin: 0.6rem 0;
+}
+
+/* timer/resend line */
+.timer {
+  margin-top: 0.6rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.resend {
+  color: #1b84ff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* modal overlay */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 10, 25, 0.45);
+  z-index: 9999;
+}
+
+/* modal box */
+.modalBox {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 6px 30px rgba(2, 6, 23, 0.15);
+}
+
+/* small helper styles */
+.smallText {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 0.6rem;
+}
+
+/* responsive */
+@media (max-width: 520px) {
+  .card {
+    padding: 1.4rem;
+  }
+
+  .otpInput {
+    width: 44px;
+    height: 52px;
+  }
+
+  .logo {
+    width: 140px;
+  }
+}
+
+.card h2 {
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+
+}
+
+.card input {
+  color: #000;
+  border: 1px solid #b2b2b2;
+  border-radius: 5px;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  display: flex;
+  position: relative;
+  background-color: #fff !important;
+  position: relative;
+
+}
+
+.card label {
+  text-align: left;
+  font-weight: 600;
+  width: 100%;
+  font-size: 1.2rem;
+
+}
+
+.numberinput {
+  position: relative;
+}
+
+.numberinput input {
+  padding-left: 50px;
+
+}
+
+.INDimg {
+  width: 30px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.checkboxGroup {
+  margin-top: 1rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.9rem !important;
+  color: #979797;
+  margin-bottom: 0.5rem;
+  font-weight: 500 !important;
+}
+
+.checkboxLabel a {
+  color: #042b62;
+  text-decoration: underline;
+
+}
+
+.primaryBtn {
+  padding: 0.75rem 2.25rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #042b62;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.primaryBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.checkboxLabel input {
+  width: min-content;
+}
+
+.backArrow {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: transparent;
+  border: none;
+  color: #00132e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.backArrow:hover {
+  color: #00b6f0;
+}
+
+.questionTitle {
+  color: #042b62;
+  font-size: 2.9rem;
+  font-weight: 600;
+  text-align: center;
+
+}
+
+.schedule {
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding: 10rem 0;
+  font-size: 2.5rem;
+  font-weight: 500;
+  display: flex;
+
+}
+@media (max-width: 520px) {
+  .questionTitle{
+    font-size: 2rem;
+    margin: 0;
+  }
+  .schedule{
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .formWrapper{
+    padding: 0;
+  }
+}

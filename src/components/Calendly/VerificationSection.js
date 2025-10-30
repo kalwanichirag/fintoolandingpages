@@ -1,7 +1,5 @@
-"use client"
+"use client";
 import styles from "./style.module.css";
-
-// import TaxData from "./TaxData.json";
 import { getUserId } from "@/app/common_utilities";
 import { useEffect, useState } from "react";
 import Calendar from "./Calendar";
@@ -19,82 +17,77 @@ function VerificationSection({
   extraParams,
   logo,
   addIncomSlabAndComment,
-  currAppointmentView,       // coming from parent
-  setCurrAppointmentView     // coming from parent
+  currAppointmentView,
+  setCurrAppointmentView,
 }) {
-
-  const loggedIn = useSelector((state) => state.loggedIn);
-  const [show, SetShow] = useState(false);
-
   const dispatch = useDispatch();
+  const loggedIn = useSelector((state) => state.loggedIn);
+  const [show, setShow] = useState(false);
 
+  // ✅ reset form and handle close
   const handleClose = () => {
-    SetShow(false);
-    // Use parent state setter
-    Boolean(loggedIn) === false
-      ? setCurrAppointmentView('VERIFICATION')
-      : handleLoggedInCase();
+    setShow(false);
+
+    if (!loggedIn) {
+      setCurrAppointmentView("VERIFICATION");
+    } else {
+      handleLoggedInCase();
+    }
 
     dispatch({
       type: "SET_LEAD_DATA",
-      payload: {
-        fullname: "",
-        mobile: "",
-        email: ""
-      }
+      payload: { fullname: "", mobile: "", email: "" },
     });
-  }
+  };
 
   const handleLoggedInCase = () => {
-    setTimeout(() => {
-      assignUserData();
-    }, 2000);
-  }
+    setTimeout(assignUserData, 500);
+  };
 
   const assignUserData = () => {
-    const userid = getUserId();
+    try {
+      const userid = getUserId();
+      const member = JSON.parse(commonEncode.decrypt(localStorage.getItem("member"))) || [];
+      const users = JSON.parse(commonEncode.decrypt(localStorage.getItem("allMemberUser"))) || [];
 
-    let member = JSON.parse(commonEncode.decrypt(localStorage.getItem("member")));
-    let users = JSON.parse(commonEncode.decrypt(localStorage.getItem("allMemberUser")));
+      const memberData = member.find((data) => data.id == userid);
+      const currentUser = users.find((data) => data.id == userid);
 
-    const membertUserData = member.filter(data => data.id == userid)[0];
-    const currentUserData = users.filter(data => data.id == userid)[0];
+      if (!memberData || !currentUser) return;
 
-    console.log('currentUserData', currentUserData);
+      dispatch({
+        type: "SET_LEAD_DATA",
+        payload: {
+          fullname: memberData?.name || "",
+          mobile: currentUser?.mobile || "",
+          email: currentUser?.email || "",
+        },
+      });
 
-    dispatch({
-      type: "SET_LEAD_DATA",
-      payload: {
-        fullname: membertUserData?.name,
-        mobile: currentUserData?.mobile,
-        email: currentUserData?.email
-      }
-    });
+      setCurrAppointmentView("CALENDLY");
+    } catch (err) {
+      console.error("Error assigning user data", err);
+    }
+  };
 
-    // Update parent state to show Calendly
-    setCurrAppointmentView('CALENDLY');
-  }
-
+  // ✅ React to login change
   useEffect(() => {
-    Boolean(loggedIn) === false
-      ? setCurrAppointmentView('VERIFICATION')
-      : handleLoggedInCase();
-  }, [loggedIn, setCurrAppointmentView]);
+    if (!loggedIn) {
+      setCurrAppointmentView("VERIFICATION");
+    } else {
+      setCurrAppointmentView("CALENDLY");
+    }
+  }, [loggedIn]);
 
   return (
     <>
-      {currAppointmentView === 'VERIFICATION' && (
+      {currAppointmentView === "VERIFICATION" && (
         <UserVerification logo={logo} setCurrAppointmentView={setCurrAppointmentView} />
       )}
 
-      {currAppointmentView === 'CALENDLY' && (
-        <div className={`${styles["appointment-section-iframe"]}`}>
-          <div
-            className="calendly-inline-widget"
-            style={{
-              width: "100%",
-            }}
-          >
+      {currAppointmentView === "CALENDLY" && (
+        <div className={styles["appointment-section-iframe"]}>
+          <div className="calendly-inline-widget" style={{ width: "100%" }}>
             <Calendar
               isWP={isWP}
               extraParams={extraParams}
@@ -102,7 +95,7 @@ function VerificationSection({
               url={eventUrl}
               serviceName={serviceName}
               planId={planId}
-              SetShow={SetShow}
+              SetShow={setShow}
               addIncomSlabAndComment={addIncomSlabAndComment}
             />
           </div>

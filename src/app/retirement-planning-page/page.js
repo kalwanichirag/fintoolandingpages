@@ -13,7 +13,7 @@ import SecuritySection from "../../components/HTML/SecuritySection";
 import Fullpage from "../../components/Layouts/Fullpage";
 
 // Lazy-load Calendly component (client-side only)
-const AppointmentBox = dynamic(() => import("../../components/Calendly"), { ssr: false });
+const StepForm = dynamic(()=> import("@/components/StepForm/StepForm"), { ssr: false });
 
 export default function RetirementPlanning() {
   const [utmSource, setUtmSource] = useState(26);
@@ -71,13 +71,13 @@ export default function RetirementPlanning() {
       <SecuritySection />
 
       <section id="book-appointment">
-        <AppointmentBox
-          extraParams={utmSource && tagval ? { utm_source: utmSource, service: 98 } : {}}
-          eventCode={utmSource && tagval ? tagval : "Callback_mintyApp_10"}
+         <StepForm
+            eventCode="Callback_mintyApp_113"
           serviceName="Retirement Planning"
           eventUrl="https://calendly.com/fintoo/15-minutes-consultation-call-retirement-planning?hide_event_type_details=1"
           planId="20"
-        />
+          />
+       
       </section>
 
       <FaqSection />

@@ -14,9 +14,8 @@ import OurAchievements from "../components/HTML/OurAchievements";
 import FeaturedIn from "../components/HTML/FeaturedIn";
 import KnowledgeBase from "../components/HTML/KnowledgeBase";
 import ThankyouSection from "../components/ThankyouSection";
+import StepForm from "@/components/StepForm/StepForm";
 
-// Lazy-load Calendly component (client-only)
-const AppointmentBox = dynamic(() => import("../components/Calendly"), { ssr: false });
 
 const Homepage = () => {
   const [show, SetShow] = useState(false);
@@ -49,13 +48,13 @@ const Homepage = () => {
       <OurAchievements />
       <FeaturedIn />
       <KnowledgeBase />
-
-      <AppointmentBox
+      <StepForm
+        eventUrl="https://calendly.com/fintoo/15-min-consultation-call-financial-planning?hide_event_type_details=1"
         eventCode="Callback_mintyApp_8"
         serviceName="Financial Planning"
-        eventUrl="https://calendly.com/fintoo/15-min-consultation-call-financial-planning?hide_event_type_details=1"
         planId="29"
       />
+     
 
       {show && <ThankyouSection onClose={() => SetShow(false)} />}
     </Fullpage>

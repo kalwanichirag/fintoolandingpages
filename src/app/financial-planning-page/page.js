@@ -16,6 +16,7 @@ import FpProcess from "../../components/NewPlanningpage/FpProcess";
 import ExpertReview from "../../components/NewPlanningpage/ExpertReview";
 import ClientTestimonial from "../../components/NewPlanningpage/ClientReviews";
 import CalendlySectionView from "../../components/NewPlanningpage/CalendlySection"
+import StepForm from "@/components/StepForm/StepForm";
 
 const images = [
   process.env.NEXT_PUBLIC_STATIC_URL + "media/LandingPage/FPExpert.webp",
@@ -124,10 +125,15 @@ const NewPlanningpage = () => {
       <WhoisfpPlanner />
       <div style={{ background: "#fff" }}>
         <ClientTestimonial />
-          </div>
-           <div ref={calendlyRef}>
-        {/* <CalendlySectionView formData={formData} /> */}
       </div>
+      <div className="calendlyfp">
+      <StepForm
+       eventCode={'Callback_mintyApp_8'} serviceName="Financial Planning" eventUrl={"https://calendly.com/fintoo/fintoo-15-mins-consultation-call-yt-fp?hide_event_type_details=1"} planId="29"/>
+     </div>
+        {/* <div ref={calendlyRef}>
+        
+    <CalendlySectionView formData={formData} />
+      </div> */}
       <ExpertReview />
       <FaqSection />
 
@@ -141,7 +147,6 @@ const NewPlanningpage = () => {
             left: 0,
             width: "100%",
             zIndex: 1000,
-            background: "#fff",
           }}
         >
           <Book_consultation

@@ -226,3 +226,35 @@ h3 {
   padding-bottom: 1rem;
 }
 
+
+.calendlyfp{
+	    background: linear-gradient(90deg, #161c2dcc 40%, #161c2d00 60%), url('https://www.fintoo.in/web/static/media/calendy.1686e0c69d685fde1858.webp');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff !important;
+    padding: 1rem 0;
+}
+.calendlyfp .questiontitle h3{
+	    color: #fff !important;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+
+
+}
+@media only screen and (max-width: 600px) {
+.calendlyfp .questiontitle h3{
+    font-size: 1.5rem;
+        font-weight: 700;
+
+
+
+}
+.calendlyfp{
+	padding: 3rem 0 2rem 0;
+}
+}
+.calendlyfp .questiontitlehd>h3{
+	display: none;
+}
