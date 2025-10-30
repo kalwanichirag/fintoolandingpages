@@ -40,6 +40,14 @@ export default function CTAForm() {
           q.question.toLowerCase().includes("annual income")
         )?.answer || "";
 
+      
+       const utm = getUTMParams();
+
+      // ✅ Use fallbacks for missing UTM values
+      const utmSource = utm.utm_source && utm.utm_source !== "0" ? utm.utm_source : "26";
+      const serviceId = utm.utm_campaign && utm.utm_campaign !== "0" ? utm.utm_campaign : "98";
+      const tagVal = utm.tags && utm.tags.trim() !== "" ? utm.tags : "Callback_mintyApp_8";
+
       // ✅ Prepare CRM payload
       const payload = {
         fullname: resource?.name || "",
@@ -49,10 +57,10 @@ export default function CTAForm() {
         servicename: "Investment Planning",
         plan_name: "Investment Plan",
         status: "Introductory meet",
-        tags: "Callback_mintyApp_8",
-        utm_source: "26",
+         tags: tagVal,
+        utm_source: utmSource,
         rm_id: "96",
-        service: "98",
+        service: serviceId,
         tagval: "",
         skip_sms: "",
       };
