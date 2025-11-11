@@ -92,24 +92,15 @@ function RiskManagementContent() {
           }
         />
         <ClientTestimonial />
-        {/* <section id="book-appointment">
-          {utmSource && tagval ? (
-            <AppointmentBox
-              extraParams={{ utm_source: utmSource, service: 98 }}
-              eventCode={tagval}
-              serviceName="Insurance"
+        <section id="book-appointment">
+           <StepForm
+            eventCode="Callback_mintyApp_113"
+          serviceName="Insurance"
               eventUrl="https://calendly.com/fintoo/15-min-consultation-call-risk-management?hide_event_type_details=1"
               planId="45"
-            />
-          ) : (
-            <AppointmentBox
-              eventCode="Callback_mintyApp_12"
-              serviceName="Insurance"
-              eventUrl="https://calendly.com/fintoo/15-min-consultation-call-risk-management?hide_event_type_details=1"
-              planId="45"
-            />
-          )}
-        </section> */}
+          />
+         
+        </section>
         <FaqSection />
         {show && <ThankyouSection onClose={() => SetShow(false)} />}
       </div>

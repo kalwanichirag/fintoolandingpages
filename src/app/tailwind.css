@@ -124,3 +124,75 @@ height: 50px;
   transform-origin: left;
   animation: tw-line-pulse 0.8s ease-in-out forwards;
 }
+
+.tw-gradient-bg {
+    background: linear-gradient(135deg, #0047AB 0%, #1e40af 50%, #0891b2 100%);
+}
+
+.tw-gradient-orange {
+    background: linear-gradient(135deg, #dd7300 0%, #f97316 50%, #fb923c 100%);
+}
+
+.neumorphic {
+    background: #f8fafc;
+    box-shadow: 20px 20px 60px #d1d5db, -20px -20px 60px #ffffff;
+    border-radius: 20px;
+}
+
+.tw-fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.tw-slide-up {
+    animation: slideUp 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tw-animate-bounce-slow {
+    animation: bounce 3s infinite;
+}
+
+.tw-hover-lift {
+    transition: all 0.3s ease;
+}
+
+.tw-hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .tw-animate-marquee-mobile {
+    animation: marquee-scroll 4s linear infinite;
+    min-width: 80%;
+  }
+}
