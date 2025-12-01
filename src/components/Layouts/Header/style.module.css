@@ -182,6 +182,7 @@
   font-size: 40px;
   color: #F0806D;
   text-decoration: none;
+  cursor: pointer;
 }
 
 
@@ -275,6 +276,7 @@
 }
 
 .mobile-nav {
+  padding-top: 3rem;
   padding-left: 2rem;
   padding-right: 2rem;
   list-style: none;

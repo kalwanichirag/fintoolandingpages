@@ -71,7 +71,7 @@ export default function RetirementPlanning() {
       <section id="book-appointment">
         <LandingPageCalendly
           servicename={"assisted_advisory_fixed_fees"}
-          calendlyurl={"https://calendly.com/d/2zt-z8p-34k/15-min-consultation-call-retirement-planning?hide_event_type_details=1"} variant='minimal' />
+          calendlyurl={"https://calendly.com/d/2zt-z8p-34k/15-min-consultation-call-retirement-planning?hide_event_type_details=1"} />
 
          {/* <StepForm
             eventCode="Callback_mintyApp_113"

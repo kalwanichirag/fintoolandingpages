@@ -4,9 +4,7 @@ const LeftSection = (props) => {
     <>
       <p className={`${styles["section-title"]}`}>Introducing</p>
       <h3 className="header-section-bold-title" style={{color:'#042b62'}}>
-        {/* Financial goal advice <br/> Contray to popular */}
-        {/* Al-Driven <span style={{color : "#dd7300"}}>Financial Planning</span>, Achieve Your Financial Goals. */}
-        Al-Driven <span>Financial Planning</span>, Achieve Your Financial Goals.
+        Al-Driven <span style={{color : "#dd7300"}}>Financial Planning</span>, Achieve Your Financial Goals.
       </h3>
       {/* <p className={`${styles.sectionsubText}`}>
         A robo advisory platform powered by Artificial Intelligence which

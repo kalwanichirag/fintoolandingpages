@@ -34,7 +34,7 @@ export default function Header() {
     
         <div className="d-block d-lg-none container-fluid">
           <div
-            className={` ${styles["mobile-menu"]} d-flex align-items-center justify-content-between`}
+            className={` ${styles["mobile-menu"]} d-flex align-items-center gap-3`}
           >
             <div
               className={styles["menu-button"]}
@@ -214,7 +214,7 @@ export default function Header() {
                           <Link
                             target="_self"
                             onClick={() => setOpenMenu(false)}
-                            href={`/itr-file/`}
+                            href={`https://www.fintoo.in/itr-file/`}
                           >
                             File your ITR
                           </Link>
@@ -223,7 +223,7 @@ export default function Header() {
                           <Link
                             target="_self"
                             onClick={() => setOpenMenu(false)}
-                            href={`/nri-taxation/`}
+                            href={`https://www.fintoo.in/nri-taxation/`}
                           >
                             NRI Taxation
                           </Link>
@@ -232,7 +232,7 @@ export default function Header() {
                           <Link
                             target="_self"
                             onClick={() => setOpenMenu(false)}
-                            href={`/notices/`}
+                            href={`https://www.fintoo.in/notices/`}
                           >
                             Notices
                           </Link>
@@ -250,7 +250,7 @@ export default function Header() {
                           <Link
                             target="_self"
                             onClick={() => setOpenMenu(false)}
-                            href={`/tax-calculators`}
+                            href={`https://www.fintoo.in/tax-calculators`}
                           >
                             Tax Calculators
                           </Link>
@@ -268,7 +268,7 @@ export default function Header() {
                         setOpenMenu(false);
                       }}
                       target="_self"
-                      href={`/pricing/`}
+                      href={`https://www.fintoo.in/pricing/`}
                     >
                       Pricing
                     </Link>
