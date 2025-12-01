@@ -11,10 +11,7 @@ import AdvisorycardSection from "@/components/HTML/Stockadvisory/AdvisorySection
 import ReportsPage from "@/components/HTML/Stockadvisory/ReportsPage";
 import FeaturesSection from "@/components/HTML/Stockadvisory/FeaturesSection";
 import AssistedUAESection from "@/components/HTML/Stockadvisory/AssistedUAESection";
-
-import dynamic from "next/dynamic";
-const StepForm = dynamic(() => import("@/components/StepForm/StepForm"), { ssr: false });
-
+import LandingPageCalendly from "@/components/landingpagesCalendly/LandingPageCalendly";
 const Stockadvisory = () => {
   useEffect(() => {
     if (typeof document !== "undefined") {

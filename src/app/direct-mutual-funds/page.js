@@ -8,11 +8,9 @@ import FeaturesSection from "../../components/HTML/DirectMF/FeaturesSection";
 import FaqSection from "../../components/HTML/DirectMF/FaqSection";
 import Fullpage from "../../components/Layouts/Fullpage";
 import ThankyouSection from "../../components/ThankyouSection";
-import LandingPageCalendly from "../landingpagesCalendly/LandingPageCalendly";
-
+import LandingPageCalendly from "@/components/landingpagesCalendly/LandingPageCalendly";
 
 // ✅ Use StepForm instead of AppointmentBox
-const StepForm = dynamic(() => import("../../components/StepForm/StepForm"), { ssr: false });
 const StatsSection = dynamic(() => import("../../components/HTML/DirectMF/StatsSection"), { ssr: false });
 const ClientTestimonial = dynamic(() => import("../../components/HTML/ClientTestimonial"), { ssr: false });
 

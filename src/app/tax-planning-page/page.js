@@ -8,8 +8,7 @@ import Fullpage from "../../components/Layouts/Fullpage";
 import ThankyouSection from "../../components/ThankyouSection";
 import WidgetSection from "../../components/HTML/TaxPlanning/WidgetSection";
 import TPCardSection from "../../components/HTML/TaxPlanning/TPCardSection";
-import StepForm from "@/components/StepForm/StepForm";
-
+import LandingPageCalendly from "@/components/landingpagesCalendly/LandingPageCalendly";
 function TaxPlanningContent() {
   const TaxPlanningRef = useRef(null);
 
