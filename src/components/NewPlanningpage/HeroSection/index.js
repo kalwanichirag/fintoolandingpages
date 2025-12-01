@@ -1,6 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
 import Style from "./style.module.css"
+
 const HeroSection = ({ setFormData, formData, scrollToCalendly }) => {
     return (
         <div  className={`${Style.heroSection}`}>

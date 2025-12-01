@@ -14,7 +14,7 @@ const HeroSection = () => {
         <section
             className="tw-relative tw-h-[70vh] tw-text-white tw-bg-cover tw-bg-center tw-flex tw-flex-col tw-justify-center tw-items-center"
             style={{
-                backgroundImage: `url('https://www.fintoo.in/wealthmanagement/wp-content/uploads/2023/08/professional-investor-working-start-up-project-strategy-plan-with-document.jpg')`
+                backgroundImage: `url('https://www.fintoo.in/static/media/bannerBackground2.34a2f12cf611ecf0d147.jpg')`
             }}
         >
             <div className="tw-bg-black/75 tw-absolute tw-inset-0"></div>

@@ -10,6 +10,7 @@ import Fullpage from "@/components/Layouts/Fullpage";
 import ThankyouSection from "@/components/ThankyouSection";
 import dynamic from "next/dynamic";
 import FaqSection from '@/components/HTML/BondInvestment/FaqSection';
+import LandingPageCalendly from "@/components/landingpagesCalendly/LandingPageCalendly";
 const StepForm = dynamic(() => import("@/components/StepForm/StepForm"), { ssr: false });
 
 function BondInvestment() {
@@ -39,12 +40,16 @@ function BondInvestment() {
 
         {/* ✅ Replace AppointmentBox with StepForm */}
         <section id="bondInvestmentContact">
-          <StepForm
+          <LandingPageCalendly
+            servicename={"assisted_advisory_fixed_fees"}
+            calendlyurl={"https://calendly.com/fintoo/15-min-consultation-call-bond-investment?hide_event_type_details=1"} />
+
+          {/* <StepForm
             eventCode="Callback_mintyApp_33"
             serviceName="Bonds"
             eventUrl="https://calendly.com/fintoo/15-min-consultation-call-bond-investment?hide_event_type_details=1"
             planId="47"
-          />
+          /> */}
         </section>
 
         <FaqSection />

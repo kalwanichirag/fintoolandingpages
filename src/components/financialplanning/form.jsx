@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import LandingPageCalendly from "../landingpagesCalendly/LandingPageCalendly";
 
 export default function CalendlySection() {
   return (
@@ -21,12 +21,9 @@ export default function CalendlySection() {
 
           {/* Right Calendly Embed */}
           <div className="tw-bg-white tw-rounded-xl tw-overflow-hidden tw-p-3 sm:tw-p-4 tw-w-full tw-max-w-2xl tw-mx-auto">
-            <div className="tw-relative tw-w-full tw-pb-[125%] sm:tw-pb-[100%] md:tw-pb-[90%] lg:tw-pb-[80%]">
-              <iframe
-                src="https://calendly.com/dummy-link"
-                className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-border-none"
-                title="Calendly Form"
-              ></iframe>
+            <div className="tw-relative tw-w-full ">
+              <LandingPageCalendly servicename={"assisted_advisory_fixed_fees"} calendlyurl={"https://calendly.com/d/cr76-3f4-jgz/15-mins-consultation-call-with-financial-planner?hide_event_type_details=1"} variant="minimal" />
+
             </div>
           </div>
         </div>

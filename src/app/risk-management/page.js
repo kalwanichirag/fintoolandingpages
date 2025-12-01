@@ -13,6 +13,7 @@ import ClientTestimonial from "../../components/HTML/ClientTestimonial";
 import Cookies from "js-cookie";
 import Insurancecalculator from "../../components/HTML/Insurance/insurancecalculator";
 import { usePathname, useSearchParams } from "next/navigation";
+import LandingPageCalendly from "@/components/landingpagesCalendly/LandingPageCalendly";
 
 function RiskManagementContent() {
   const [show, SetShow] = useState(false);
@@ -93,12 +94,14 @@ function RiskManagementContent() {
         />
         <ClientTestimonial />
         <section id="book-appointment">
-           <StepForm
+                               <LandingPageCalendly servicename={"assisted_advisory_fixed_fees"} calendlyurl={"https://calendly.com/d/2zt-z8p-34k/15-min-consultation-call-risk-management?hide_event_type_details=1"} />
+
+           {/* <StepForm
             eventCode="Callback_mintyApp_113"
           serviceName="Insurance"
               eventUrl="https://calendly.com/fintoo/15-min-consultation-call-risk-management?hide_event_type_details=1"
               planId="45"
-          />
+          /> */}
          
         </section>
         <FaqSection />

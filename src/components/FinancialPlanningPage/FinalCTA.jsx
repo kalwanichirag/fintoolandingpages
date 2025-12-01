@@ -2,78 +2,10 @@
 
 import React, { useState } from "react";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
+import LandingPageCalendly from "../landingpagesCalendly/LandingPageCalendly";
 const FinalCTA = () => {
 
-  const [showThankYou, setShowThankYou] = useState(false);
-
-  // ✅ Listen for Calendly event scheduling
-  useCalendlyEventListener({
-    onEventScheduled: async (e) => {
-      console.log("Calendly event data:", e.data);
-
-      const inviteeUri = e?.data?.payload?.invitee?.uri;
-      if (!inviteeUri) return console.error("No invitee URI from Calendly");
-
-      // Fetch full invitee details
-      const r = await fetch(inviteeUri, {
-        method: "GET",
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjQ4MjExMjQ0LCJqdGkiOiJmMmM1YWIwOC01N2ZiLTQ0YzAtODNjYy1lM2QxZWZhZGY2YzMiLCJ1c2VyX3V1aWQiOiI0ODVhZTAyZC02ZGNiLTQ1MjktODdiYi01MGY2NDE3NGI4ZWYifQ.5bIIwHH3DTn1Vp7Oj6hZlLkVIbI1q7jxqFogGaGkb1g",
-        },
-      });
-      const inviteeData = await r.json();
-      const resource = inviteeData?.resource;
-
-      const qna = resource?.questions_and_answers || [];
-
-      // ✅ Extract data (handles variations in spelling)
-      const mobile =
-        qna.find(
-          (q) =>
-            q.question.toLowerCase().includes("mobile number") ||
-            q.question.toLowerCase().includes("moblie number") ||
-            q.question.toLowerCase().includes("phone")
-        )?.answer || "";
-
-      const income =
-        qna.find((q) =>
-          q.question.toLowerCase().includes("annual income")
-        )?.answer || "";
-
-      // ✅ Prepare CRM payload
-      const payload = {
-        fullname: resource?.name || "",
-        email: resource?.email || "",
-        mobile: mobile,
-        comment: income,
-        servicename: "Financial Planning",
-        plan_name: "Financial Plan",
-        status: "Introductory meet",
-        tags: "Callback_mintyApp_8",
-        utm_source: "26",
-        rm_id: "96",
-        service: "98",
-        tagval: "",
-        skip_sms: "",
-      };
-
-      console.log("Sending to CRM:", payload);
-
-      // ✅ Send to CRM
-      fetch("https://www.fintoo.in/callback-services/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      })
-        .then(async (res) => {
-          const response = await res.json().catch(() => ({}));
-          console.log("CRM Response:", response);
-          setShowThankYou(true); // Show thank-you popup
-        })
-        .catch((err) => console.error("Error sending data:", err));
-    },
-  });
+ 
   return (
     <section
       id="final-cta"
@@ -125,30 +57,18 @@ const FinalCTA = () => {
 
           {/* RIGHT: Calendly Embed */}
           <div className="tw-bg-white tw-rounded-xl tw-p-6 tw-text-gray-800 tw-text-center">
-            <InlineWidget url="https://calendly.com/d/csqj-96h-zc9/15-mins-consultation-call-with-financial-advisor?hide_event_type_details=1" />
+                <LandingPageCalendly
+            servicename={"assisted_advisory_fixed_fees"}
+              calendlyurl={"https://calendly.com/fintoo/15-min-consultation-call-with-financial-advisor?hide_event_type_details=1"}
+            variant="minimal"
+            />
+
+            {/* <InlineWidget url="https://calendly.com/d/csqj-96h-zc9/15-mins-consultation-call-with-financial-advisor?hide_event_type_details=1" /> */}
           </div>
         </div>
       </div>
 
-            {showThankYou && (
-        <div className="tw-fixed tw-inset-0 tw-flex tw-items-center tw-justify-center tw-bg-black/60 tw-z-50">
-          <div className="tw-bg-white tw-rounded-2xl tw-px-8 tw-py-10 tw-text-center tw-max-w-md tw-shadow-2xl">
-            <h3 className="tw-text-2xl tw-font-bold tw-text-fintoo-blue tw-mb-4">
-              Thank You!
-            </h3>
-            <p className="tw-text-xl tw-text-gray-600 tw-mb-6">
-              Your consultation has been successfully scheduled. Our advisor
-              will connect with you soon.
-            </p>
-            <button
-              onClick={() => setShowThankYou(false)}
-              className="tw-bg-fintoo-blue tw-text-white tw-px-6 tw-py-3 tw-rounded-full tw-font-semibold"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+          
       {/* Floating Elements */}
       <div className="tw-absolute tw-top-10 tw-left-10 tw-w-20 tw-h-20 tw-bg-white/10 tw-rounded-full tw-animate-pulse"></div>
       <div className="tw-absolute tw-bottom-10 tw-right-10 tw-w-28 tw-h-28 tw-bg-orange-400/20 tw-rounded-full animate-bounce-slow"></div>

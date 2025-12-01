@@ -108,6 +108,7 @@ height: 50px;
 .tw-animate-slide-in {
   animation: tw-slide-in 0.6s ease-out forwards;
 }
+
 @keyframes tw-line-pulse {
   0% {
     transform: scaleX(1);

@@ -15,6 +15,7 @@ import FeaturedIn from "../components/HTML/FeaturedIn";
 import KnowledgeBase from "../components/HTML/KnowledgeBase";
 import ThankyouSection from "../components/ThankyouSection";
 import StepForm from "@/components/StepForm/StepForm";
+import LandingPageCalendly from "@/components/landingpagesCalendly/LandingPageCalendly";
 
 
 const Homepage = () => {
@@ -48,13 +49,15 @@ const Homepage = () => {
       <OurAchievements />
       <FeaturedIn />
       <KnowledgeBase />
-      <StepForm
+
+      {/* <StepForm
         eventUrl="https://calendly.com/fintoo/15-min-consultation-call-financial-planning?hide_event_type_details=1"
         eventCode="Callback_mintyApp_8"
         serviceName="Financial Planning"
         planId="29"
       />
-     
+      */}
+                     <LandingPageCalendly servicename={"assisted_advisory_fixed_fees"} calendlyurl={"https://calendly.com/fintoo/15-min-consultation-call-financial-planning?hide_event_type_details=1"}/>
 
       {show && <ThankyouSection onClose={() => SetShow(false)} />}
     </Fullpage>

@@ -11,9 +11,7 @@ import HowWeWorkSection from "../../components/RetirementPlanning/StepsFinancial
 import YoutubevideoSection from "../../components/RetirementPlanning/YoutubevideoSection";
 import SecuritySection from "../../components/HTML/SecuritySection";
 import Fullpage from "../../components/Layouts/Fullpage";
-
-// Lazy-load Calendly component (client-side only)
-const StepForm = dynamic(()=> import("@/components/StepForm/StepForm"), { ssr: false });
+import LandingPageCalendly from "@/components/landingpagesCalendly/LandingPageCalendly";
 
 export default function RetirementPlanning() {
   const [utmSource, setUtmSource] = useState(26);
@@ -71,12 +69,16 @@ export default function RetirementPlanning() {
       <SecuritySection />
 
       <section id="book-appointment">
-         <StepForm
+        <LandingPageCalendly
+          servicename={"assisted_advisory_fixed_fees"}
+          calendlyurl={"https://calendly.com/d/2zt-z8p-34k/15-min-consultation-call-retirement-planning?hide_event_type_details=1"} variant='minimal' />
+
+         {/* <StepForm
             eventCode="Callback_mintyApp_113"
           serviceName="Retirement Planning"
           eventUrl="https://calendly.com/fintoo/15-minutes-consultation-call-retirement-planning?hide_event_type_details=1"
           planId="20"
-          />
+          /> */}
        
       </section>
 

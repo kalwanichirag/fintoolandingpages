@@ -7,11 +7,7 @@ import IpoHeaderSection from "@/components/HTML/IpoPage/IpoPageHeaderSection";
 import Fullpage from "@/components/Layouts/Fullpage";
 import ThankyouSection from "@/components/ThankyouSection";
 import ClientTestimonial from "@/components/HTML/ClientTestimonial";
-import dynamic from "next/dynamic";
-
-// ✅ Replaced Calendly AppointmentBox with StepForm
-const StepForm = dynamic(() => import("@/components/StepForm/StepForm"), { ssr: false });
-
+import LandingPageCalendly from "@/components/landingpagesCalendly/LandingPageCalendly";
 function IpoPage() {
   const [show, setShow] = useState(false);
 
@@ -30,12 +26,16 @@ function IpoPage() {
 
         {/* ✅ StepForm replaces AppointmentBox (handles OTP + Calendly + tags) */}
         <section id="ipoContactSection">
-          <StepForm
+          <LandingPageCalendly
+          servicename={"assisted_advisory_fixed_fees"}
+          calendlyurl={"https://calendly.com/d/cr76-3f4-jgz/15-mins-consultation-call-ipo?hide_event_type_details=1"} />
+
+          {/* <StepForm
             eventCode="Callback_mintyApp_113"
             serviceName="IPO"
             eventUrl="https://calendly.com/fintoo/15-min-consultation-call-ipo?hide_event_type_details=1"
             planId="50"
-          />
+          /> */}
         </section>
 
         {show && <ThankyouSection onClose={() => setShow(false)} />}

@@ -38,12 +38,16 @@ const Stockadvisory = () => {
 
       {/* ✅ StepForm replaces AppointmentBox */}
       <section id="GETREPORTS">
-        <StepForm
+        <LandingPageCalendly
+          servicename={"assisted_advisory_fixed_fees"}
+          calendlyurl={"https://calendly.com/d/2zt-z8p-34k/15-min-consultation-call-domestic-equity?hide_event_type_details=1"} />
+
+        {/* <StepForm
           eventCode="Callback_mintyApp_89"
           serviceName="Direct Domestic Equity"
           eventUrl="https://calendly.com/fintoo/15-min-consultation-call-domestic-equity?hide_event_type_details=1"
           planId="48"
-        />
+        /> */}
       </section>
 
       <FaqSection />

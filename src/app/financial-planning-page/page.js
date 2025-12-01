@@ -15,8 +15,7 @@ import Book_consultation from "../../components/NewPlanningpage/Book_consultatio
 import FpProcess from "../../components/NewPlanningpage/FpProcess";
 import ExpertReview from "../../components/NewPlanningpage/ExpertReview";
 import ClientTestimonial from "../../components/NewPlanningpage/ClientReviews";
-import CalendlySectionView from "../../components/NewPlanningpage/CalendlySection"
-import StepForm from "@/components/StepForm/StepForm";
+import LandingPageCalendly from "@/components/landingpagesCalendly/LandingPageCalendly";
 
 const images = [
   process.env.NEXT_PUBLIC_STATIC_URL + "media/LandingPage/FPExpert.webp",
@@ -127,10 +126,14 @@ const NewPlanningpage = () => {
         <ClientTestimonial />
       </div>
       <div className="calendlyfp">
-      <StepForm
-       eventCode={'Callback_mintyApp_8'} serviceName="Financial Planning" eventUrl={"https://calendly.com/fintoo/fintoo-15-mins-consultation-call-yt-fp?hide_event_type_details=1"} planId="29"/>
+        <LandingPageCalendly
+          servicename={"assisted_advisory_fixed_fees"}
+          calendlyurl={"https://calendly.com/d/cr76-3f4-jgz/15-mins-consultation-call-yt-fp?hide_event_type_details=1"} />
+
+      {/* <StepForm
+       eventCode={'Callback_mintyApp_8'} serviceName="Financial Planning" eventUrl={"https://calendly.com/fintoo/fintoo-15-mins-consultation-call-yt-fp?hide_event_type_details=1"} planId="29"/> */}
      </div>
-        {/* <div ref={calendlyRef}>
+      {/* <div ref={calendlyRef}>
         
     <CalendlySectionView formData={formData} />
       </div> */}

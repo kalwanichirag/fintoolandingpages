@@ -7,10 +7,8 @@ import WhyInvestSection from "@/components/HTML/InternationalEquity/WhyInvestSec
 import FaqSection from "@/components/HTML/InternationalEquity/FaqSection";
 import Fullpage from "@/components/Layouts/Fullpage";
 import ThankyouSection from "@/components/ThankyouSection";
-import dynamic from "next/dynamic";
+import LandingPageCalendly from "@/components/landingpagesCalendly/LandingPageCalendly";
 
-// ✅ Use StepForm instead of AppointmentBox
-const StepForm = dynamic(() => import("@/components/StepForm/StepForm"), { ssr: false });
 
 function InternationalEquity() {
   const [show, setShow] = useState(false);
@@ -34,12 +32,16 @@ function InternationalEquity() {
 
         {/* ✅ Replaced Calendly AppointmentBox with StepForm */}
         <section id="internationalEquityContact">
-          <StepForm
+          <LandingPageCalendly
+          servicename={"assisted_advisory_fixed_fees"}
+          calendlyurl={"https://calendly.com/d/cr76-3f4-jgz/15-mins-consultation-call-international-equity?hide_event_type_details=1"} />
+
+          {/* <StepForm
             eventCode="Callback_mintyApp_90"
             serviceName="Direct International Equity"
             eventUrl="https://calendly.com/fintoo/15-min-consultation-call-international-equity?hide_event_type_details=1"
             planId="49"
-          />
+          /> */}
         </section>
 
         <FaqSection />

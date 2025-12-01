@@ -126,13 +126,13 @@ export default function Footer({ hideFooter = false }) {
                   <h2 className={styles.footerheading}>Tax</h2>
                   <ul className={styles.footernavigation}>
                     <li>
-                      <Link href="/nri-taxation">NRI Taxation</Link>
+                      <Link href="https://www.fintoo.in/nri-taxation">NRI Taxation</Link>
                     </li>
                     <li>
-                      <Link href="/notices">Notices</Link>
+                      <Link href="https://www.fintoo.in/notices">Notices</Link>
                     </li>
                     <li>
-                      <Link href="/tax-calculators">Tax Calculators</Link>
+                      <Link href="https://www.fintoo.in/tax-calculators  ">Tax Calculators</Link>
                     </li>
                   </ul>
                 </div>
@@ -144,18 +144,18 @@ export default function Footer({ hideFooter = false }) {
                     <li>
                       <a
                         href={
-                          process.env.NEXT_PUBLIC_PYTHON_URL +
-                          "blog/how-fintoo-ensures-your-safety-and-security/"
+                          
+                          "https://blog.fintoo.in/blog/how-fintoo-ensures-your-safety-and-security/"
                         }
                       >
                         Safety Shield (Data Privacy)
                       </a>
                     </li>
                     <li>
-                      <Link href="/about-us">About Us</Link>
+                      <Link href="https://www.fintoo.in/about-us">About Us</Link>
                     </li>
                     <li>
-                      <Link href="/contact">Contact Us</Link>
+                      <Link href="https://www.fintoo.in/contact">Contact Us</Link>
                     </li>
                   
                     <li>
@@ -176,33 +176,33 @@ export default function Footer({ hideFooter = false }) {
                   <h2 className={styles.footerheading}>Others</h2>
                   <ul className={styles.footernavigation}>
                     <li>
-                      <Link href="/contact/">Partner With Us</Link>
+                      <Link href="https://www.fintoo.in/contact/">Partner With Us</Link>
                     </li>
                     <li>
-                      <Link href="/privacy-policy">Privacy Policy</Link>
+                      <Link href="https://www.fintoo.in/privacy-policy">Privacy Policy</Link>
                     </li>
                     <li>
-                      <Link href="/terms-conditions">Terms and Conditions</Link>
+                      <Link href="https://www.fintoo.in/terms-conditions">Terms and Conditions</Link>
  
                     </li>
                     <li>
-                      <Link href="/terms-conditions">Grievance Mechanism</Link>
+                      <Link href="https://www.fintoo.in/terms-conditions">Grievance Mechanism</Link>
                     </li>
                       <li>
-                      <Link href="/terms-conditions">Complaints Status</Link>
+                      <Link href="https://www.fintoo.in/terms-conditions">Complaints Status</Link>
                     </li>
                       <li>
-                      <Link href="/terms-conditions">Access Online Dispute Resolution (ODR) Portal
+                      <Link href="https://www.fintoo.in/terms-conditions">Access Online Dispute Resolution (ODR) Portal
 </Link>
                     </li>
                       <li>
-                      <Link href="/terms-conditions">Investor Charter</Link>
+                      <Link href="https://www.fintoo.in/terms-conditions">Investor Charter</Link>
                     </li>
                     <li>
-                      <Link href="/terms-conditions">Compliance Audit Status</Link>
+                      <Link href="https://www.fintoo.in/terms-conditions">Compliance Audit Status</Link>
                     </li>
                       <li>
-                      <Link href="/terms-conditions">Help Center</Link>
+                      <Link href="https://www.fintoo.in/terms-conditions">Help Center</Link>
                     </li>
                   </ul>
                 </div>
