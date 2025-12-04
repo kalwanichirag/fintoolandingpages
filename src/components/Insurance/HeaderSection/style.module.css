@@ -117,9 +117,9 @@
 /* ------------------------------------------------------------------------media query----------------------------------------------------------------- */
 
 @media only screen and (max-width: 600px) {
-  .header-section {
+  /* .header-section {
     padding: 2rem 0.5rem;
-  }
+  } */
 
   .header-section-content {
     width: 100%;
@@ -132,7 +132,8 @@
   }
   
   .header-section {
-    padding: 0re0rem 0 6rem;
+       padding: 8rem 1rem 1rem 1rem;
+
   }
 
   .header-section-content {

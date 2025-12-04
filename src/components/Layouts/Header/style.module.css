@@ -113,16 +113,16 @@
 }
 .link-url {
   text-decoration: none !important;
-  color: #000;
+  color: #042b62;
   display: block;
-  padding: 0 25px;
+  padding: 0 20px;
   font-size: 1.2rem !important;
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
 }
 .link-url:hover {
-  color: #042b62;
+  color: #22a7df;
 }
 .link-url:hover .submenu li a {
   color: #000;

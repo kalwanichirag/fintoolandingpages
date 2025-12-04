@@ -16,7 +16,7 @@ function ExpertAdvisorySection() {
                         <h2 className={`${styles['expert-advisory-section-sub-title']}`}>Don’t Wish To Take Any Chances With Your Investment And Future? <br/> <br/> Let The Experts Do What They Do Best!</h2>
                         {/* <h3 className={`${styles['expert-advisory-section-text']}`}>Choose Fintoo’s personalised financial advisory services and let an experienced financial advisor personally guide you at every step of your journey to achieve your financial goals.</h3> */}
                         <br />
-                        <a href={`${process.env.PUBLIC_URL}/financial-planning-page`} className={`${styles['expert-advisory-section-content-btn']} ${styles['animatedBouncInUp']} ${styles['bounceInUp']}`} >Know More</a>
+                        <a href={`/financial-planning-page`} className={`${styles['expert-advisory-section-content-btn']} ${styles['animatedBouncInUp']} ${styles['bounceInUp']}`} >Know More</a>
                     </div>
                     <div ref={ref} className={`${styles['expert-advisory-section-image']}`}>
                         <div className={`${styles['expert-advisory-section-image-container']}`} >

@@ -23,7 +23,7 @@ function TaxPlanningHeaderSection() {
 
             {
               isHomePage ? <>
-                <Link className="text-decoration-none text-center" href={`${process.env.PUBLIC_URL}/tax-planning-page#TaxPlanningSection`}>
+                <Link className="text-decoration-none text-center" href={`/tax-planning-page#TaxPlanningSection`}>
                   <button
                     className={`${styles["header-section-content-btn"]} ${styles["animatedBouncInUp"]} ${styles["bounceInUp"]}`}
                   >
@@ -31,7 +31,7 @@ function TaxPlanningHeaderSection() {
                   </button>
                 </Link>
               </> :
-                <Link href={`${process.env.PUBLIC_URL}/pricing?service=tax-planning`} className="text-decoration-none">
+                <Link href={`https://fintoo.in/pricing?service=tax-planning`} className="text-decoration-none">
                   <button
                     className={`${styles["header-section-content-btn"]} ${styles["animatedBouncInUp"]} ${styles["bounceInUp"]}`}
                   >

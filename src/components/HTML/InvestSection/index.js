@@ -57,7 +57,7 @@ const InvestSection = () => {
                   <div className={styles.investcardlist}>
                     <div className={styles.card}>
                       <a
-                        href={`${process.env.PUBLIC_URL}/stock-advisory`}
+                        href={`/stock-advisory`}
                         style={{ textDecoration: "none" }}
                       >
                         <div className={`${styles["card-stock"]}`}>
@@ -71,7 +71,7 @@ const InvestSection = () => {
 
                     <div className={styles.card}>
                       <a
-                        href={`${process.env.PUBLIC_URL}/ipo`}
+                        href={`/ipo`}
                         style={{ textDecoration: "none" }}
                       >
                         <div className={`${styles["card-IPO"]}`}>
@@ -87,7 +87,7 @@ const InvestSection = () => {
                     <div className={styles.card}>
                       <div className={`${styles["card-DMF"]}`}>
                         <a
-                          href={`${process.env.PUBLIC_URL}/direct-mutual-funds`}
+                          href={`/direct-mutual-funds`}
                           style={{ textDecoration: "none" }}
                         >
                           <div className={styles.cardinner}>
@@ -106,7 +106,7 @@ const InvestSection = () => {
                     <div className={styles.card}>
                       <div className={`${styles["card-bond"]}`}>
                         <a
-                          href={`${process.env.PUBLIC_URL}/bond-investment`}
+                          href={`/bond-investment`}
                           style={{ textDecoration: "none" }}
                         >
                           <div className={styles.cardinner}>
@@ -118,7 +118,7 @@ const InvestSection = () => {
                     </div>
                     <div className={styles.card}>
                       <a
-                        href={`${process.env.PUBLIC_URL}/nri-desk`}
+                        href={`/nri-desk`}
                         style={{ textDecoration: "none" }}
                       >
                         <div className={`${styles["card-NRI"]}`}>

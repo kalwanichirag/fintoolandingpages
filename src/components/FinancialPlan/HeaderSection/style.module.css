@@ -229,6 +229,11 @@
     }
 }
 @media only screen and (max-width: 768px) {
+   
+  .header-section-container {
+       padding: 8rem 1rem 1rem 1rem;
+
+  }
   .padding-class .section-title{
     text-align: center;
   }

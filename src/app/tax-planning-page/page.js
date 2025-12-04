@@ -35,18 +35,13 @@ function TaxPlanningContent() {
         <SecuritySection />
 
         {/* ✅ StepForm replaces AppointmentBox */}
-        <section id="book-appointment">
+        {/* <section id="book-appointment">
             <LandingPageCalendly
           servicename={"assisted_advisory_fixed_fees"}
           calendlyurl={"https://calendly.com/d/2zt-z8p-34k/15-min-consultation-call-tax-planning-website?hide_event_type_details=1"} />
 
-          {/* <StepForm
-            eventCode="Callback_mintyApp_9"
-            serviceName="Tax Planning"
-            eventUrl="https://calendly.com/fintoo/15-min-consultation-call-tax-planning-website?hide_event_type_details=1"
-            planId="25"
-          /> */}
-        </section>
+        
+        </section> */}
 
         <FaqSection />
         {/* Optional: if you still want Thankyou popup for later use */}

@@ -58,38 +58,49 @@ const NewPlanningpage = () => {
   }, []);
 
   // SCROLL DETECTION
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroElement =
-        typeof document !== "undefined"
-          ? document.getElementById("hero-section")
-          : null;
-      const footerElement =
-        typeof document !== "undefined"
-          ? document.getElementById("FooterView")
-          : null;
-      const calendlyElement = calendlyRef.current;
+ useEffect(() => {
+  const handleScroll = () => {
+    const heroElement =
+      typeof document !== "undefined"
+        ? document.getElementById("hero-section")
+        : null;
 
-      if (heroElement) {
-        const rect = heroElement.getBoundingClientRect();
-        setIsHeroVisible(rect.top < window.innerHeight && rect.bottom > 0);
-      }
+    const footerElement =
+      typeof document !== "undefined"
+        ? document.getElementById("FooterView")
+        : null;
 
-      if (calendlyElement) {
-        const rect = calendlyElement.getBoundingClientRect();
-        setIsCalendlyVisible(rect.top < window.innerHeight && rect.bottom > 0);
-      }
+    const calendlyElement = calendlyRef.current;
 
-      if (footerElement) {
-        const footerRect = footerElement.getBoundingClientRect();
-        setIsBookVisible(!(footerRect.top <= 200));
-      }
-    };
+    // HERO VISIBLE CHECK
+    if (heroElement) {
+      const rect = heroElement.getBoundingClientRect();
+      setIsHeroVisible(rect.top < window.innerHeight && rect.bottom > 0);
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // initial check
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    // CALENDLY VISIBLE CHECK
+    if (calendlyElement) {
+      const rect = calendlyElement.getBoundingClientRect();
+      setIsCalendlyVisible(rect.top < window.innerHeight && rect.bottom > 0);
+    }
+
+    // FOOTER VISIBLE CHECK
+    if (footerElement) {
+      const footerRect = footerElement.getBoundingClientRect();
+
+      const footerVisible =
+        footerRect.top < window.innerHeight && footerRect.bottom > 0;
+
+      // Hide Book Bar when footer visible
+      setIsBookVisible(!footerVisible);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
 
   return (
     <div className="relative">
@@ -125,18 +136,29 @@ const NewPlanningpage = () => {
       <div style={{ background: "#fff" }}>
         <ClientTestimonial />
       </div>
-      <div className="calendlyfp">
-        <LandingPageCalendly
-          servicename={"assisted_advisory_fixed_fees"}
-          calendlyurl={"https://calendly.com/d/cr76-3f4-jgz/15-mins-consultation-call-yt-fp?hide_event_type_details=1"} />
+      <div className="calendlyfp" ref={calendlyRef}>
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6">
+              <div className="mb-5"><svg width="80" height="88" viewBox="0 0 80 88" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse opacity="0.0786365" cx="40.0094" cy="44.4609" rx="39.15" ry="43.5" fill="white"></ellipse><path d="M40.4578 28.9609C31.5126 28.9609 24.2578 35.4371 24.2578 43.4371C24.2578 51.4371 31.5126 57.9133 40.4578 57.9133C41.8665 57.9133 43.3456 57.7609 44.7543 57.38L52.8543 60.8847C52.9248 60.8847 52.9952 60.9609 53.1361 60.9609C53.2769 60.9609 53.4178 60.8847 53.5587 60.8086C53.77 60.6562 53.8404 60.3514 53.8404 60.1228L53.0656 52.5038C55.39 49.9895 56.6578 46.7133 56.6578 43.4371C56.6578 35.4371 49.403 28.9609 40.4578 28.9609Z" fill="white"></path></svg></div>
+              <h2 className="text-white fs-1 fw-bold">
+                Schedule a Complimentary Consultation with Fintoo Today
 
-      {/* <StepForm
-       eventCode={'Callback_mintyApp_8'} serviceName="Financial Planning" eventUrl={"https://calendly.com/fintoo/fintoo-15-mins-consultation-call-yt-fp?hide_event_type_details=1"} planId="29"/> */}
-     </div>
-      {/* <div ref={calendlyRef}>
-        
-    <CalendlySectionView formData={formData} />
-      </div> */}
+              </h2>
+
+            </div>
+            <div className="col-lg-6">
+              <LandingPageCalendly
+                servicename={"assisted_advisory_fixed_fees"}
+                calendlyurl={"https://calendly.com/d/cr76-3f4-jgz/15-mins-consultation-call-yt-fp?hide_event_type_details=1"}
+                variant="minimal"
+              />
+            </div>
+          </div>
+        </div>
+
+
+      </div>
       <ExpertReview />
       <FaqSection />
 

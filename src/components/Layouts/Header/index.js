@@ -6,13 +6,13 @@ export default function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const [submenu, setSubmenu] = useState("");
   const [scrolled, setScrolled] = useState(false);
-  
+
 
   const handleMenuChange = (menu) => {
     setSubmenu(submenu === menu ? "" : menu);
   };
 
-  // Handle scroll for sticky header
+ 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 40) {
@@ -29,12 +29,12 @@ export default function Header() {
     <>
       <div className={`NDA-Space ${styles.fakeSpace} fakeSpace_rn_k9`}></div>
 
-           <header className={styles.header + " main-header"}>
+      <header className={styles.header + " main-header"}>
 
-    
+
         <div className="d-block d-lg-none container-fluid">
           <div
-            className={` ${styles["mobile-menu"]} d-flex align-items-center gap-3`}
+            className={` ${styles["mobile-menu"]} d-flex align-items-center justify-content-between gap-3`}
           >
             <div
               className={styles["menu-button"]}
@@ -54,7 +54,9 @@ export default function Header() {
                 alt="Fintoo logo"
               />
             </a>
-          
+
+            <div className="d-flex align-items-center px-4"><a className=" style_cart__4B0J5" href="https://www.fintoo.in/direct-mutual-fund/mycart"><img src="https://www.fintoo.in/static/media/cart.d535d69759367f22c61e973b8d9da241.svg" width="30" /></a><div></div></div>
+
             <div
               className={`${styles["mobile-menu-wrapper"]} ${openMenu ? styles["active"] : ""
                 } `}
@@ -90,7 +92,7 @@ export default function Header() {
                               setOpenMenu(false);
                             }}
                             href={
-                              process.env.PUBLIC_URL +
+                              
                               "/financial-planning-page/"
                             }
                           >
@@ -102,7 +104,7 @@ export default function Header() {
                             target="_self"
                             onClick={() => setOpenMenu(false)}
                             href={
-                              process.env.PUBLIC_URL +
+                              
                               "/retirement-planning-page/"
                             }
                           >
@@ -113,7 +115,7 @@ export default function Header() {
                           <Link
                             target="_self"
                             href={
-                              process.env.PUBLIC_URL +
+                              
                               "/investment-planning-page/"
                             }
                             onClick={() => setOpenMenu(false)}
@@ -124,7 +126,7 @@ export default function Header() {
                         <li>
                           <Link
                             target="_self"
-                            href={process.env.PUBLIC_URL + "/tax-planning-page/"}
+                            href={ "/tax-planning-page/"}
                             onClick={() => setOpenMenu(false)}
                           >
                             Tax Planning
@@ -133,7 +135,7 @@ export default function Header() {
                         <li>
                           <Link
                             target="_self"
-                            href={process.env.PUBLIC_URL + "/risk-management/"}
+                            href={ "/risk-management/"}
                             onClick={() => setOpenMenu(false)}
                           >
                             Risk Management
@@ -210,7 +212,7 @@ export default function Header() {
                     </div>
                     {submenu == "menu2" && (
                       <ul className={styles["submenu"]}>
-                        <li>
+                        {/* <li>
                           <Link
                             target="_self"
                             onClick={() => setOpenMenu(false)}
@@ -218,7 +220,7 @@ export default function Header() {
                           >
                             File your ITR
                           </Link>
-                        </li>
+                        </li> */}
                         <li>
                           <Link
                             target="_self"
@@ -240,7 +242,7 @@ export default function Header() {
                         <li>
                           <Link
                             target="_self"
-                            href={process.env.PUBLIC_URL + "/tax-planning-page"}
+                            href={ "/tax-planning-page"}
                             onClick={() => setOpenMenu(false)}
                           >
                             Tax Planning
@@ -411,15 +413,15 @@ export default function Header() {
                   </li>
 
                   {/* mobile */}
-                 
-                    <li
-                      className={`${styles["link-url"]} ${styles["link-url-mobile"]}`}
-                     
-                    >
-                      Login
-                      {/* </a> */}
-                    </li>
-                 
+
+                  <li
+                    className={`${styles["link-url"]} ${styles["link-url-mobile"]}`}
+
+                  >
+                    Login
+                    {/* </a> */}
+                  </li>
+
                 </ul>
               </div>
             </div>
@@ -441,7 +443,7 @@ export default function Header() {
                   <li>
                     <div
                       className={` ${styles["link-url"]} main_header_link_url`}
-                      href={process.env.PUBLIC_URL + "#"}
+                      href={ "#"}
                     >
                       Advisory{" "}
                       <span className={styles.aspan}>
@@ -502,7 +504,7 @@ export default function Header() {
                   <li>
                     <div
                       className={` ${styles["link-url"]} main_header_link_url`}
-                      href={process.env.PUBLIC_URL + "#"}
+                      href={ "#"}
                     >
                       Invest{" "}
                       <span className={styles.aspan}>
@@ -563,7 +565,7 @@ export default function Header() {
                   <li>
                     <div
                       className={` ${styles["link-url"]} main_header_link_url`}
-                      href={process.env.PUBLIC_URL + "#"}
+                      href={ "#"}
                     >
                       Tax{" "}
                       <span className={styles.aspan}>
@@ -573,20 +575,20 @@ export default function Header() {
                     <div className={styles["submenu-container"]}>
                       <ul className={styles.submenu}>
                         {/* {process.env.NEXT_APP_MODE != "live" && ( */}
-                          <li>
-                            <Link
-                              className={` ${styles["link-url"]} main_header_link_url`}
-                              href={`/itr-file?utm_service=91&utm_source=26&tags=itr_filing_2025&rm_id=96`}
-                              onClick={() => toggleLoader()}
-                            >
-                              File your ITR
-                            </Link>
-                          </li>
+                        {/* <li>
+                          <Link
+                            className={` ${styles["link-url"]} main_header_link_url`}
+                            href={`https://www.fintoo.in/itr-file?utm_service=91&utm_source=26&tags=itr_filing_2025&rm_id=96`}
+                            onClick={() => toggleLoader()}
+                          >
+                            File your ITR
+                          </Link>
+                        </li> */}
                         {/* )} */}
                         <li>
                           <Link
                             className={` ${styles["link-url"]} main_header_link_url`}
-                            href={`/nri-taxation/`}
+                            href={`https://www.fintoo.in/nri-taxation/`}
                             onClick={() => toggleLoader()}
                           >
                             NRI Taxation
@@ -595,7 +597,7 @@ export default function Header() {
                         <li>
                           <Link
                             className={` ${styles["link-url"]} main_header_link_url`}
-                            href={`/notices/`}
+                            href={`https://www.fintoo.in/notices/`}
                             onClick={() => toggleLoader()}
                           >
                             Notices
@@ -604,7 +606,7 @@ export default function Header() {
                         <li>
                           <Link
                             className={` ${styles["link-url"]} main_header_link_url`}
-                            href={process.env.PUBLIC_URL + "/tax-planning-page"}
+                            href="/tax-planning-page"
                             onClick={() => setOpenMenu(false)}
                           >
                             Tax Planning
@@ -613,7 +615,7 @@ export default function Header() {
                         <li>
                           <Link
                             className={` ${styles["link-url"]} main_header_link_url`}
-                            href={`/tax-calculators`}
+                            href={`https://www.fintoo.in/tax-calculators`}
                             onClick={() => toggleLoader()}
                           >
                             Tax Calculators
@@ -625,7 +627,7 @@ export default function Header() {
                   <li>
                     <Link
                       className={` ${styles["link-url"]} main_header_link_url`}
-                      href={`/pricing`}
+                      href={`https://www.fintoo.in/pricing`}
                       onClick={() => toggleLoader()}
                     >
                       Pricing
@@ -641,7 +643,7 @@ export default function Header() {
                   <li>
                     <div
                       className={` ${styles["link-url"]} main_header_link_url`}
-                      href={process.env.PUBLIC_URL + "#"}
+                      href={ "#"}
                     >
                       Knowledge Base{" "}
                       <span className={styles.aspan}>
@@ -683,7 +685,7 @@ export default function Header() {
                   {/* <li>
                     <a
                       className={styles["link-url"]}
-                      href={process.env.PUBLIC_URL + "#"}
+                      href={ "#"}
                     >
                       Corporate Care
                       <span className={styles.aspan}>
@@ -705,7 +707,7 @@ export default function Header() {
                       </ul>
                     </div>
                   </li> */}
-                 
+
                   <li className={`pointer ${styles.regionselectordialog}`}>
                     <div className={styles["link-url"]}>
                       <img
@@ -755,79 +757,33 @@ Customer Help Center */}
                       </div>
                     </div>
                   </li>
-                  <li className={`pointer ${styles.regionselectordialog}`}>
-                    <div className={` ${styles["link-url"]} main_header_link_url`}>
-                      <img
-                        src={
-                            process.env.NEXT_PUBLIC_STATIC_URL +
-                            "media/Header/global.png"
-                          }
-                        alt=""
-                        style={{ width: "27.5px" }}
-                      />
-                      {/* Help Center */}
-                    </div>
-                    <div className={styles["submenu-container"]}>
-                      <div
-                        className={`${styles.submenu}, ${styles.GlobalMenu}`}
-                      >
-                        <div className={styles.GlobalLang}>
-                          <div className={styles.GlobalText}>
-                            Change Region{" "}
-                          </div>
-                        </div>
-                        <div className={`${styles.GloballangMenu}`}>
-                          <div className={`${styles.Country}`}>
-                            <p>Asia Pacific</p>
-                            <div>
-                              <a
-                                className={`text-decoration-none ${styles.Region} fintoo-blue`}
-                                href="https://www.fintoo.in"
-                              >
-                                India(English)
-                              </a>
-                            </div>
-                          </div>
-                          <div className={`${styles.HRline}`}></div>
-                          <div className={`${styles.Country}`}>
-                            <p>Middle East</p>
-                            <div>
-                              <a
-                                className={`text-decoration-none ${styles.Region} fintoo-blue`}
-                                href="https://www.fintoo.ae"
-                              >
-                                UAE(English)
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+               
+                  <li className={` ${styles["link-url"]} main_header_link_url`}>
+                                <div className="d-flex align-items-center px-4"><a className=" style_cart__4B0J5" href="https://www.fintoo.in/direct-mutual-fund/mycart"><img src="https://www.fintoo.in/static/media/cart.d535d69759367f22c61e973b8d9da241.svg" width="30" /></a><div></div></div>
+
+</li>
+                  <li
+                    className={` ${styles["link-url"]} main_header_link_url`}
+
+                  >
+
+                    <a
+                      className={` ${styles["link-url"]} main_header_link_url p-0`}
+                      href="https://www.fintoo.in/login"
+                    >
+                      Login
+                    </a>
                   </li>
-                 
-                 
-                    <li
-                      className={` ${styles["link-url"]} main_header_link_url`}
-                     
-                >
-                  
-                  <a
-                            className={` ${styles["link-url"]} main_header_link_url p-0`}
-                            href="https://www.fintoo.in/web/login"
-                          >
-                            Login
-                          </a>
-                    </li>
-                 
-              
+
+
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-      
+
       </header>
-      </>
-     );
+    </>
+  );
 }
